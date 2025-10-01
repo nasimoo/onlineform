@@ -1,0 +1,921 @@
+{
+  "errors": [],
+  "local_annotated_image_path": "/Users/nasimo/Documents/omniparserscreenshot/local_store/action_001/parsed_annotated.png",
+  "local_csv_path": "/Users/nasimo/Documents/omniparserscreenshot/local_store/action_001/bbox.csv",
+  "local_prefix": "action_001",
+  "local_raw_image_path": "/Users/nasimo/Documents/omniparserscreenshot/local_store/action_001/raw_image.png",
+  "parsed_elements": [
+    {
+      "bbox": [
+        0.2760416567325592,
+        0.03625783324241638,
+        0.29369214177131653,
+        0.05774395540356636
+      ],
+      "content": "+",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.46990740299224854,
+        0.07564906030893326,
+        0.5300925970077515,
+        0.09847806394100189
+      ],
+      "content": " localhost:3000",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.29050925374031067,
+        0.13652640581130981,
+        0.49074074625968933,
+        0.15935541689395905
+      ],
+      "content": "Dynamic Online Form Experiment",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.29050925374031067,
+        0.17412713170051575,
+        0.40827545523643494,
+        0.19740375876426697
+      ],
+      "content": "Emergency Contact Name",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.2890625,
+        0.23321396112442017,
+        0.3368055522441864,
+        0.2618621289730072
+      ],
+      "content": "Full Name",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.28877314925193787,
+        0.29901522397994995,
+        0.35908564925193787,
+        0.32587286829948425
+      ],
+      "content": " Phone Number",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.2916666567325592,
+        0.3307967782020569,
+        0.35011574625968933,
+        0.3536257743835449
+      ],
+      "content": "(555) 555-1234",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.6369961500167847,
+        0.36553019285202026,
+        0.7095500230789185,
+        0.3973272144794464
+      ],
+      "content": "Submit ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.0,
+        0.028341762721538544,
+        0.14095275104045868,
+        0.0637931153178215
+      ],
+      "content": " New Tab ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.2892659604549408,
+        0.19494374096393585,
+        0.4995696246623993,
+        0.23164556920528412
+      ],
+      "content": "John Doe ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.2885662615299225,
+        0.25909867882728577,
+        0.500334620475769,
+        0.2942979037761688
+      ],
+      "content": "Jane Doe ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.13866697251796722,
+        0.02890896424651146,
+        0.2615979313850403,
+        0.06186135858297348
+      ],
+      "content": "Dynamic Online Form ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.6708797216415405,
+        0.13267743587493896,
+        0.7095803618431091,
+        0.1634340137243271
+      ],
+      "content": "Shuffle ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.40972188115119934,
+        0.3426426351070404,
+        0.5928975343704224,
+        0.37029799818992615
+      ],
+      "content": "Q Search ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.4723956286907196,
+        0.42678573727607727,
+        0.4936067759990692,
+        0.46203821897506714
+      ],
+      "content": "Emoji or profile view.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.47289586067199707,
+        0.5137354731559753,
+        0.4938608705997467,
+        0.5473348498344421
+      ],
+      "content": "A smiley face emoji.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.49977993965148926,
+        0.4264957904815674,
+        0.5216218829154968,
+        0.463274210691452
+      ],
+      "content": "heart like button.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.47230640053749084,
+        0.38624340295791626,
+        0.4942295551300049,
+        0.4177718758583069
+      ],
+      "content": "a smiley face with a pink tongue sticking out.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5267230868339539,
+        0.4264603555202484,
+        0.5506921410560608,
+        0.46307995915412903
+      ],
+      "content": "A beach umbrella with a beach umbrella tip.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5008853077888489,
+        0.6101896166801453,
+        0.5212780833244324,
+        0.6419222354888916
+      ],
+      "content": "A smiley face emoji.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.47310134768486023,
+        0.47087350487709045,
+        0.4938468337059021,
+        0.5040193796157837
+      ],
+      "content": "a smiley face with eyes closed.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5289010405540466,
+        0.6104140877723694,
+        0.548835277557373,
+        0.64202880859375
+      ],
+      "content": "A happy or excited face or smiley face.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5252417922019958,
+        0.5114625096321106,
+        0.5518707633018494,
+        0.5496271848678589
+      ],
+      "content": "A thumbs up or thumbs up symbol.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.4446409344673157,
+        0.513892650604248,
+        0.465767502784729,
+        0.5472038984298706
+      ],
+      "content": "A smiley face emoji with a napkin under it.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.4988735318183899,
+        0.3858756422996521,
+        0.523158073425293,
+        0.4176085889339447
+      ],
+      "content": "Emoji with water droplets on it.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5005089640617371,
+        0.5132759809494019,
+        0.5217210054397583,
+        0.5481337308883667
+      ],
+      "content": "an angry face emoji.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.47339898347854614,
+        0.6099517345428467,
+        0.49352410435676575,
+        0.6419181823730469
+      ],
+      "content": "A smiley face emoji with teeth.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5278847813606262,
+        0.6480159759521484,
+        0.549419105052948,
+        0.6805276870727539
+      ],
+      "content": "a smiley face with eyes closed.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.556718111038208,
+        0.610843300819397,
+        0.5769199132919312,
+        0.6417161226272583
+      ],
+      "content": "A smiley face with a black ball in it.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5007155537605286,
+        0.648220419883728,
+        0.5212923884391785,
+        0.6807671785354614
+      ],
+      "content": "A dropper or drop of water.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.47092205286026,
+        0.55699622631073,
+        0.49523434042930603,
+        0.5924478769302368
+      ],
+      "content": "A user profile or avatar.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.4163861572742462,
+        0.5573773384094238,
+        0.4386119246482849,
+        0.5918280482292175
+      ],
+      "content": "smiley face emoji.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.4171386957168579,
+        0.6103017330169678,
+        0.4380895793437958,
+        0.6422394514083862
+      ],
+      "content": "smiling face emoji.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.4442165493965149,
+        0.6482967138290405,
+        0.4671865701675415,
+        0.6810837388038635
+      ],
+      "content": "a smiley face with a water droplet dangling from it.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5261145234107971,
+        0.3839375674724579,
+        0.5500363707542419,
+        0.41900378465652466
+      ],
+      "content": "A simple symbol or symbol for music or music.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.4145447015762329,
+        0.42533910274505615,
+        0.440085232257843,
+        0.4641079306602478
+      ],
+      "content": "a character in a summer outfit with bunny ears.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5281340479850769,
+        0.4713854491710663,
+        0.5496393442153931,
+        0.5037837028503418
+      ],
+      "content": "Emoji that has a heart.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.4731309711933136,
+        0.6483955979347229,
+        0.49382367730140686,
+        0.6805118918418884
+      ],
+      "content": "A scoop of color resembling a fish.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.4440199136734009,
+        0.38689327239990234,
+        0.4674018919467926,
+        0.41785627603530884
+      ],
+      "content": "A smiley face with a line coming out of it.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5546249747276306,
+        0.5115022659301758,
+        0.5779972672462463,
+        0.5493587851524353
+      ],
+      "content": "A thumbs up symbol.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5007907152175903,
+        0.47111642360687256,
+        0.5211709141731262,
+        0.5038784742355347
+      ],
+      "content": "A smiley face with a curved nose.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.445048451423645,
+        0.4707670509815216,
+        0.4649644196033478,
+        0.504601001739502
+      ],
+      "content": "A banana peel, which is commonly associated with banana peel.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5553093552589417,
+        0.42780327796936035,
+        0.5786580443382263,
+        0.46262282133102417
+      ],
+      "content": "heart like emoji",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.4163399934768677,
+        0.4720984697341919,
+        0.43904316425323486,
+        0.5042749047279358
+      ],
+      "content": "an angry face emoji.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.444877564907074,
+        0.6095532774925232,
+        0.466166615486145,
+        0.6419379115104675
+      ],
+      "content": "A happy face emoji with a nut or grain in it.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5557177066802979,
+        0.47105124592781067,
+        0.5782776474952698,
+        0.5042517781257629
+      ],
+      "content": "an angry face emoji.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.4442253112792969,
+        0.42626500129699707,
+        0.465501606464386,
+        0.4631408452987671
+      ],
+      "content": "Refresh or recycle.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.41452866792678833,
+        0.5140011310577393,
+        0.4389025866985321,
+        0.5496361255645752
+      ],
+      "content": "heart",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.4169713258743286,
+        0.38718870282173157,
+        0.43879806995391846,
+        0.4179742932319641
+      ],
+      "content": "A smiley face with an unhappy expression.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.49933338165283203,
+        0.5561743378639221,
+        0.5228229761123657,
+        0.5916932821273804
+      ],
+      "content": "A smiley face with sunglasses on.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.4423372447490692,
+        0.5567249655723572,
+        0.46758386492729187,
+        0.5922946929931641
+      ],
+      "content": "A profile picture of someone with a thumbs up.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.55607670545578,
+        0.6481966376304626,
+        0.5773875117301941,
+        0.6812418103218079
+      ],
+      "content": "A smiley face emoji with a slight smile.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5545283555984497,
+        0.38467323780059814,
+        0.5782663822174072,
+        0.4198746085166931
+      ],
+      "content": "A symbol or logo.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.4159834682941437,
+        0.6487177610397339,
+        0.43897107243537903,
+        0.6822012066841125
+      ],
+      "content": "A smiley face with a water droplet dangling from it.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5258261561393738,
+        0.6859344244003296,
+        0.5543864369392395,
+        0.7178739905357361
+      ],
+      "content": "A light bulb or bulb with a heart symbol.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5012051463127136,
+        0.6861885190010071,
+        0.5219671726226807,
+        0.7176457643508911
+      ],
+      "content": "A simple line or curve indicator.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.47011318802833557,
+        0.6865611672401428,
+        0.4996803402900696,
+        0.7174504399299622
+      ],
+      "content": "A simple apple or apple symbol.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.7209814786911011,
+        0.07276531308889389,
+        0.7373872399330139,
+        0.10242664813995361
+      ],
+      "content": "A symbol or icon indicating a cursor or pointer.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.4079029858112335,
+        0.30909109115600586,
+        0.422874391078949,
+        0.3365561068058014
+      ],
+      "content": "A symbol or symbol related to stretching or stretching.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.44557565450668335,
+        0.6871578693389893,
+        0.4657311737537384,
+        0.7182796597480774
+      ],
+      "content": "A profile or icon of a user profile.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.006101301405578852,
+        0.06654037535190582,
+        0.024582359939813614,
+        0.10521849989891052
+      ],
+      "content": "back arrow",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5568103194236755,
+        0.6886173486709595,
+        0.5751997828483582,
+        0.7177032828330994
+      ],
+      "content": "A simple line or header.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.04039406776428223,
+        0.06633352488279343,
+        0.0587163120508194,
+        0.10645823925733566
+      ],
+      "content": "Refresh or restart function.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.2605431079864502,
+        0.0349024198949337,
+        0.27463725209236145,
+        0.06036524474620819
+      ],
+      "content": "Close or cancel function.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.41368618607521057,
+        0.6885274052619934,
+        0.4441923201084137,
+        0.7185776233673096
+      ],
+      "content": "A smiley face or happy emotion indicator.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.574913501739502,
+        0.30968189239501953,
+        0.5909661650657654,
+        0.3371337652206421
+      ],
+      "content": "A menu or options.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5756126642227173,
+        0.6936517953872681,
+        0.5883795022964478,
+        0.7169715166091919
+      ],
+      "content": "A push button or arrow.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5817145705223083,
+        0.37657660245895386,
+        0.5943523049354553,
+        0.40081679821014404
+      ],
+      "content": "A single line or profile.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.28134194016456604,
+        0.03379170969128609,
+        0.29471030831336975,
+        0.0631294697523117
+      ],
+      "content": "A simple option to add or add a new item.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.262421190738678,
+        0.07230929285287857,
+        0.2786886692047119,
+        0.10286600887775421
+      ],
+      "content": "A symbol or symbol related to religion or religion.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.02396421879529953,
+        0.06593544036149979,
+        0.040464214980602264,
+        0.10616929829120636
+      ],
+      "content": "A simple arrow or arrow.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.977573037147522,
+        0.030678769573569298,
+        0.9940952658653259,
+        0.06343254446983337
+      ],
+      "content": "A simple symbol or icon.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.9769310355186462,
+        0.06700240075588226,
+        0.9969707727432251,
+        0.10514383018016815
+      ],
+      "content": "A stick with a blue dot on it.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5264458656311035,
+        0.5568218231201172,
+        0.5525866746902466,
+        0.5897899270057678
+      ],
+      "content": "unanswerable",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5552808046340942,
+        0.558314323425293,
+        0.5779458284378052,
+        0.5909166932106018
+      ],
+      "content": "unanswerable",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.0,
+        0.06642506271600723,
+        0.0049276393838226795,
+        0.10507037490606308
+      ],
+      "content": "unanswerable",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    }
+  ]
+}

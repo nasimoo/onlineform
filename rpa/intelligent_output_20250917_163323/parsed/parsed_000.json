@@ -1,0 +1,1389 @@
+{
+  "errors": [],
+  "local_annotated_image_path": "/Users/nasimo/Documents/omniparserscreenshot/local_store/action_000/parsed_annotated.png",
+  "local_csv_path": "/Users/nasimo/Documents/omniparserscreenshot/local_store/action_000/bbox.csv",
+  "local_prefix": "action_000",
+  "local_raw_image_path": "/Users/nasimo/Documents/omniparserscreenshot/local_store/action_000/raw_image.png",
+  "parsed_elements": [
+    {
+      "bbox": [
+        0.7199074029922485,
+        0.03446732461452484,
+        0.7375578880310059,
+        0.05774395540356636
+      ],
+      "content": "+",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.23032407462596893,
+        0.06893464922904968,
+        0.25636574625968933,
+        0.08728737384080887
+      ],
+      "content": "8x",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.9155092835426331,
+        0.07878245413303375,
+        0.9719328880310059,
+        0.09713518619537354
+      ],
+      "content": "localhost:3000",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.734375,
+        0.13473589718341827,
+        0.9363425970077515,
+        0.16293643414974213
+      ],
+      "content": "Dynamic Online Form Experiment",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.7332175970077515,
+        0.17412713170051575,
+        0.8521412014961243,
+        0.19740375876426697
+      ],
+      "content": "Emergency Contact Name",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.27199074625968933,
+        0.1875559538602829,
+        0.33217594027519226,
+        0.2054610550403595
+      ],
+      "content": " Run the script:",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.7329282164573669,
+        0.23321396112442017,
+        0.7818287014961243,
+        0.2618621289730072
+      ],
+      "content": "Full Name",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.2708333432674408,
+        0.26991942524909973,
+        0.30410879850387573,
+        0.2878245413303375
+      ],
+      "content": "Artifacts:",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.7332175970077515,
+        0.3008057177066803,
+        0.8041087985038757,
+        0.3240823745727539
+      ],
+      "content": " Phone Number",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.27719905972480774,
+        0.30752015113830566,
+        0.39785879850387573,
+        0.3325873017311096
+      ],
+      "content": "5_08_22_215147/ raw_image. png",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.7364004850387573,
+        0.3307967782020569,
+        0.7948495149612427,
+        0.3536257743835449
+      ],
+      "content": "(555) 555-1234",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.27719905972480774,
+        0.3487018942832947,
+        0.39785879850387573,
+        0.37332138419151306
+      ],
+      "content": "5_08_22_215147/parsed_annota",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.27922454476356506,
+        0.37018799781799316,
+        0.31134259700775146,
+        0.38809311389923096
+      ],
+      "content": "ted. png",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.2708333432674408,
+        0.3898836076259613,
+        0.39901620149612427,
+        0.4113697409629822
+      ],
+      "content": ": Local_store/Local/iphone_202",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.26967594027519226,
+        0.43240824341773987,
+        0.35214120149612427,
+        0.45389434695243835
+      ],
+      "content": "Optional fetch via API:",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.0011574074160307646,
+        0.5214861035346985,
+        0.23119212687015533,
+        0.5380483269691467
+      ],
+      "content": "duction deployment. Use a production WSgI server instead.",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.26967594027519226,
+        0.5214861035346985,
+        0.3072916567325592,
+        0.5393912196159363
+      ],
+      "content": "Summary:",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.2708333432674408,
+        0.5429722666740417,
+        0.38136574625968933,
+        0.564010739326477
+      ],
+      "content": " Added app_local.py (local",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.27922454476356506,
+        0.5608773231506348,
+        0.31134259700775146,
+        0.5787824392318726
+      ],
+      "content": "storage).",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.27199074625968933,
+        0.5837063789367676,
+        0.37818285822868347,
+        0.6002686023712158
+      ],
+      "content": " Fixed shell.sh to robustly",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.27719905972480774,
+        0.6002686023712158,
+        0.37702545523643494,
+        0.6217547059059143
+      ],
+      "content": "base64-encode paths with",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.27922454476356506,
+        0.6217547059059143,
+        0.3072916567325592,
+        0.6383169293403625
+      ],
+      "content": "spaces.",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.27199074625968933,
+        0.6396598219871521,
+        0.39265045523643494,
+        0.6611459255218506
+      ],
+      "content": " Verified end-to-end; got parsed",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.27806714177131653,
+        0.6580125093460083,
+        0.39380785822868347,
+        0.6777081489562988
+      ],
+      "content": "elements and saved files locally.",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.0011574074160307646,
+        0.7090420722961426,
+        0.06655092537403107,
+        0.7269471883773804
+      ],
+      "content": "t HTTP/1.1\" 200 -",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.0011574074160307646,
+        0.7846911549568176,
+        0.07089120149612427,
+        0.8008057475090027
+      ],
+      "content": "t HTTP/1.1\" 200 -",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.2760416567325592,
+        0.7994628548622131,
+        0.3072916567325592,
+        0.8173679709434509
+      ],
+      "content": "> 2 Files",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.36255785822868347,
+        0.8272157311439514,
+        0.39699074625968933,
+        0.8455684781074524
+      ],
+      "content": "31.6% O",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.0011574074160307646,
+        0.8603401780128479,
+        0.07089120149612427,
+        0.8782452940940857
+      ],
+      "content": "t HTTP/1.1\" 200 -",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.27285879850387573,
+        0.8849596977233887,
+        0.35098379850387573,
+        0.9077886939048767
+      ],
+      "content": "0 I  gpt-5-low Q",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.24594907462596893,
+        0.9261414408683777,
+        0.28530094027519226,
+        0.9422560334205627
+      ],
+      "content": "Cursor Tab",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.29050925374031067,
+        0.9261414408683777,
+        0.38223379850387573,
+        0.9422560334205627
+      ],
+      "content": " Kilo Code Autocomplete",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.7644675970077515,
+        0.9440465569496155,
+        0.8197337985038757,
+        0.9673231840133667
+      ],
+      "content": "DuckDuckGo",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.7321924567222595,
+        0.19462765753269196,
+        0.9425169825553894,
+        0.23175205290317535
+      ],
+      "content": "John Doe ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.7325137257575989,
+        0.2592960000038147,
+        0.9430519938468933,
+        0.2938830554485321
+      ],
+      "content": "Jane Doe ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5820233225822449,
+        0.028464829549193382,
+        0.7033883333206177,
+        0.06288991868495941
+      ],
+      "content": "Dynamic Online Form ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.4433307647705078,
+        0.02828439511358738,
+        0.5842783451080322,
+        0.06382675468921661
+      ],
+      "content": " New Tab ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.2793605327606201,
+        0.20520327985286713,
+        0.39863458275794983,
+        0.23169027268886566
+      ],
+      "content": "$ shellscript ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.27911075949668884,
+        0.22991842031478882,
+        0.3989322781562805,
+        0.2585950791835785
+      ],
+      "content": " bash /Users/nasimo/Documen ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.26629558205604553,
+        0.09389345347881317,
+        0.40084347128868103,
+        0.14278578758239746
+      ],
+      "content": " the sheelscript is called shell.sh lets run it ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.2624463140964508,
+        0.06502581387758255,
+        0.3628650903701782,
+        0.08833426982164383
+      ],
+      "content": "Make a curl request locally ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.2698509693145752,
+        0.823250949382782,
+        0.3263786733150482,
+        0.8450550436973572
+      ],
+      "content": "@ Add Context ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.26981812715530396,
+        0.4564312696456909,
+        0.3985545337200165,
+        0.48394355177879333
+      ],
+      "content": "$ shellscript ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.316110223531723,
+        0.0,
+        0.4059532582759857,
+        0.029695317149162292
+      ],
+      "content": "Wed Sep 17 4:33 PM ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.2786862850189209,
+        0.2917342782020569,
+        0.3974623382091522,
+        0.31079018115997314
+      ],
+      "content": ":local_store/local/iphone_202 ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.27968189120292664,
+        0.33281391859054565,
+        0.39554691314697266,
+        0.34974342584609985
+      ],
+      "content": ":local_store/local/iphone_202 ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.26651695370674133,
+        0.6898162364959717,
+        0.336367666721344,
+        0.7181648015975952
+      ],
+      "content": "E Review Changes ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.27783504128456116,
+        0.40808814764022827,
+        0.37861934304237366,
+        0.4244552254676819
+      ],
+      "content": "5_08_22_215147/bbox.csv ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.27809956669807434,
+        0.1413111686706543,
+        0.3988277018070221,
+        0.17850926518440247
+      ],
+      "content": "PORT=8080 python app_local ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.27047649025917053,
+        0.48289528489112854,
+        0.39853981137275696,
+        0.5098202228546143
+      ],
+      "content": "curl \"http://localhost:8080/ ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.27025362849235535,
+        0.8462011218070984,
+        0.3957279324531555,
+        0.8713500499725342
+      ],
+      "content": "Write, @ for context, / for ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.27074530720710754,
+        0.0,
+        0.2931622564792633,
+        0.030973177403211594
+      ],
+      "content": "Wi-Fi signal.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.2938159704208374,
+        0.0,
+        0.3155537247657776,
+        0.03057722933590412
+      ],
+      "content": "A simple switch or switch function.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.246910959482193,
+        0.0,
+        0.27092209458351135,
+        0.030834125354886055
+      ],
+      "content": "A power or charge symbol.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.21129049360752106,
+        0.0,
+        0.22848822176456451,
+        0.030644819140434265
+      ],
+      "content": "A profile or icon of a user profile.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.2285965532064438,
+        0.0,
+        0.2468269020318985,
+        0.030639836564660072
+      ],
+      "content": "A rectangle shape similar to a rectangle.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.4844699203968048,
+        0.06407381594181061,
+        0.5021855235099792,
+        0.10977334529161453
+      ],
+      "content": "Refresh or restart function.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.10384050756692886,
+        0.9822928309440613,
+        0.13109005987644196,
+        1.0
+      ],
+      "content": "A website's route number.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.19099044799804688,
+        0.0,
+        0.21129217743873596,
+        0.03056265041232109
+      ],
+      "content": "A low profile or icon.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.44976380467414856,
+        0.06454107910394669,
+        0.4683970808982849,
+        0.10943812876939774
+      ],
+      "content": "back arrow",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.467971533536911,
+        0.06389570981264114,
+        0.4849223494529724,
+        0.10955489426851273
+      ],
+      "content": "A straight line or arrow.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.343938410282135,
+        0.9868547916412354,
+        0.36760422587394714,
+        1.0
+      ],
+      "content": "A simple logout or logout function.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.07688957452774048,
+        0.9835314154624939,
+        0.10322641581296921,
+        1.0
+      ],
+      "content": "A website logo.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.31669843196868896,
+        0.9867721199989319,
+        0.34119951725006104,
+        1.0
+      ],
+      "content": "A blurry image or option to close or close a window.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.1501091569662094,
+        0.0,
+        0.17045336961746216,
+        0.030720440670847893
+      ],
+      "content": "A low pixelated angle or element that appears to be centered or centered.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.12971988320350647,
+        0.0,
+        0.1496182531118393,
+        0.030740153044462204
+      ],
+      "content": "A low pixelated icon or profile.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.38655731081962585,
+        0.030533239245414734,
+        0.40306881070137024,
+        0.060444414615631104
+      ],
+      "content": "A simple symbol or design.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.1706533432006836,
+        0.0,
+        0.19022901356220245,
+        0.030728140845894814
+      ],
+      "content": "A simple icon or icon related to a website or application.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.22836218774318695,
+        0.06559468805789948,
+        0.2440459281206131,
+        0.08857683092355728
+      ],
+      "content": "A lock or padlock function.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.37276655435562134,
+        0.030012883245944977,
+        0.38757073879241943,
+        0.06013134866952896
+      ],
+      "content": "A low profile or email icon.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.23764601349830627,
+        0.9855117797851562,
+        0.260610967874527,
+        1.0
+      ],
+      "content": "A red circle with a white line going through it.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.2632356584072113,
+        0.9859346151351929,
+        0.28766006231307983,
+        1.0
+      ],
+      "content": "A thumbs up or thumbs down.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.20991824567317963,
+        0.986283004283905,
+        0.2349305897951126,
+        1.0
+      ],
+      "content": "The name of a web browser.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.29011887311935425,
+        0.9863960146903992,
+        0.3135196268558502,
+        1.0
+      ],
+      "content": "A simple log cabin or log cabin layout.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.384257435798645,
+        0.6945737600326538,
+        0.39746105670928955,
+        0.716109037399292
+      ],
+      "content": "unanswerable",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.2448461651802063,
+        0.06638914346694946,
+        0.25870057940483093,
+        0.08814678341150284
+      ],
+      "content": "Close or cancel action.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.3894173800945282,
+        0.923130214214325,
+        0.39999276399612427,
+        0.9406026601791382
+      ],
+      "content": "A simple profile or icon.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.3418002724647522,
+        0.02988436631858349,
+        0.3569173514842987,
+        0.05976487323641777
+      ],
+      "content": "A rectangle shape with a slight angle.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.35717469453811646,
+        0.02964552491903305,
+        0.37238308787345886,
+        0.060319606214761734
+      ],
+      "content": "loading screen or screen shot.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.9520089030265808,
+        0.9797521829605103,
+        0.9769238829612732,
+        1.0
+      ],
+      "content": "A sticky note or sticky note.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.13281753659248352,
+        0.9840700030326843,
+        0.15587599575519562,
+        1.0
+      ],
+      "content": "A computer or desktop browser.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.3700132966041565,
+        0.9867011308670044,
+        0.3945557177066803,
+        1.0
+      ],
+      "content": "A file folder.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.22567442059516907,
+        0.40469908714294434,
+        0.2378038614988327,
+        0.42165327072143555
+      ],
+      "content": "A simple navigation tool.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.6884880065917969,
+        0.9827917218208313,
+        0.7181505560874939,
+        1.0
+      ],
+      "content": "A hand reaching out with a red circle with the number 3.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.21158383786678314,
+        0.4047670066356659,
+        0.22229526937007904,
+        0.4224978983402252
+      ],
+      "content": "unanswerable",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.9220144748687744,
+        0.9808820486068726,
+        0.9504671692848206,
+        1.0
+      ],
+      "content": "A blurry option.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.05139219015836716,
+        0.9856013655662537,
+        0.07500991225242615,
+        1.0
+      ],
+      "content": "A simple, flat, rounded, rectangular object.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.35721200704574585,
+        0.693898618221283,
+        0.37042659521102905,
+        0.7167220711708069
+      ],
+      "content": "A simple symbol or symbol associated with no entry or profile.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.24035890400409698,
+        0.404602587223053,
+        0.2540924549102783,
+        0.42383062839508057
+      ],
+      "content": "A close or cancel button.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.3970499336719513,
+        0.986815333366394,
+        0.4207269847393036,
+        1.0
+      ],
+      "content": "A single line or finials.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.15740397572517395,
+        0.9857892394065857,
+        0.18147794902324677,
+        1.0
+      ],
+      "content": "A green icon or profile.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.36975935101509094,
+        0.6942890286445618,
+        0.38286063075065613,
+        0.7159428596496582
+      ],
+      "content": "A rectangle shape similar to a square.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.024441812187433243,
+        0.9856559038162231,
+        0.04806545376777649,
+        1.0
+      ],
+      "content": "A pen sticking out of a computer screen.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.7042927145957947,
+        0.06917192786931992,
+        0.7236583828926086,
+        0.10452789813280106
+      ],
+      "content": "A symbol or logo that represents the element or symbolize balance.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.7037098407745361,
+        0.0331663116812706,
+        0.7197604775428772,
+        0.062455158680677414
+      ],
+      "content": "Close or cancel function.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.42351558804512024,
+        0.9868718385696411,
+        0.44656214118003845,
+        1.0
+      ],
+      "content": "A purple and white logo.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.37531280517578125,
+        0.062082432210445404,
+        0.38859808444976807,
+        0.08790498226881027
+      ],
+      "content": "Refresh or cancel.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.44927942752838135,
+        0.9859979748725891,
+        0.47272950410842896,
+        1.0
+      ],
+      "content": "A symbol or logo.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.47629961371421814,
+        0.9858197569847107,
+        0.4991792142391205,
+        1.0
+      ],
+      "content": "A horizontal or horizontal orientation.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.3836149275302887,
+        0.8845197558403015,
+        0.39742496609687805,
+        0.9070289134979248
+      ],
+      "content": "A blurry motion blur.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.6631779074668884,
+        0.9854744076728821,
+        0.6862301230430603,
+        1.0
+      ],
+      "content": "A blue icon or icon.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.3453655540943146,
+        0.6966086626052856,
+        0.35568803548812866,
+        0.7141215205192566
+      ],
+      "content": "A simple simple symbol or symbol.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.36333757638931274,
+        0.06240665912628174,
+        0.3748056888580322,
+        0.08861424773931503
+      ],
+      "content": "white plus sign",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.3892704248428345,
+        0.06202966719865799,
+        0.40176716446876526,
+        0.08833430707454681
+      ],
+      "content": "unanswerable",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5294195413589478,
+        0.9860390424728394,
+        0.5534613132476807,
+        1.0
+      ],
+      "content": "unanswerable",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.18330059945583344,
+        0.9845719337463379,
+        0.2078525871038437,
+        1.0
+      ],
+      "content": "A fast moving light or neon yellow light.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.635614275932312,
+        0.9848547577857971,
+        0.6607679724693298,
+        1.0
+      ],
+      "content": "A computer mouse's profile.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.36885276436805725,
+        0.8856689929962158,
+        0.3808300793170929,
+        0.9055742025375366
+      ],
+      "content": "A low angle or profile icon.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.8864962458610535,
+        0.9856048822402954,
+        0.9118086695671082,
+        1.0
+      ],
+      "content": "A low angle or low angle view.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5020316243171692,
+        0.9845941066741943,
+        0.5264979600906372,
+        1.0
+      ],
+      "content": "A computer or desktop browser icon.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.7249904274940491,
+        0.9832437038421631,
+        0.7513549327850342,
+        1.0
+      ],
+      "content": "A red square mark indicating someone's profile or profile.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.24911940097808838,
+        0.44673022627830505,
+        0.25761279463768005,
+        0.4700601100921631
+      ],
+      "content": "a thumbs up or thumbs down.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.6084263920783997,
+        0.9848311543464661,
+        0.6328854560852051,
+        1.0
+      ],
+      "content": "A thumbs up or thumbs down icon.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5824863910675049,
+        0.9852986931800842,
+        0.6082329154014587,
+        1.0
+      ],
+      "content": "A simple, flat, rectangular window or icon.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.8581776022911072,
+        0.9856395125389099,
+        0.8844387531280518,
+        1.0
+      ],
+      "content": "A red marker indicating a specific location or location.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    }
+  ]
+}

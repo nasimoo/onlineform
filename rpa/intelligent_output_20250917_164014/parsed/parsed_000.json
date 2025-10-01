@@ -1,0 +1,273 @@
+{
+  "errors": [],
+  "local_annotated_image_path": "/Users/nasimo/Documents/omniparserscreenshot/local_store/action_000/parsed_annotated.png",
+  "local_csv_path": "/Users/nasimo/Documents/omniparserscreenshot/local_store/action_000/bbox.csv",
+  "local_prefix": "action_000",
+  "local_raw_image_path": "/Users/nasimo/Documents/omniparserscreenshot/local_store/action_000/raw_image.png",
+  "parsed_elements": [
+    {
+      "bbox": [
+        0.26244214177131653,
+        0.032676812261343,
+        0.29484954476356506,
+        0.059086840599775314
+      ],
+      "content": "x+",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.46990740299224854,
+        0.07564906030893326,
+        0.5300925970077515,
+        0.09847806394100189
+      ],
+      "content": " localhost:3000",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.2916666567325592,
+        0.13652640581130981,
+        0.49074074625968933,
+        0.15935541689395905
+      ],
+      "content": "Dynamic Online Form Experiment",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.29050925374031067,
+        0.17412713170051575,
+        0.40827545523643494,
+        0.19740375876426697
+      ],
+      "content": "Emergency Contact Name",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.2890625,
+        0.23321396112442017,
+        0.3368055522441864,
+        0.2618621289730072
+      ],
+      "content": "Full Name",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.28877314925193787,
+        0.29901522397994995,
+        0.35908564925193787,
+        0.32587286829948425
+      ],
+      "content": " Phone Number",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.2916666567325592,
+        0.3307967782020569,
+        0.35011574625968933,
+        0.3536257743835449
+      ],
+      "content": "(555) 555-1234",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.6371496915817261,
+        0.3656312823295593,
+        0.7094213962554932,
+        0.397131085395813
+      ],
+      "content": "Submit ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.2884068191051483,
+        0.25902047753334045,
+        0.5008431673049927,
+        0.29386767745018005
+      ],
+      "content": " Jane Doe ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.0016387463547289371,
+        0.028814297169446945,
+        0.14061684906482697,
+        0.06287429481744766
+      ],
+      "content": " New Tab ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.6703757047653198,
+        0.1324068158864975,
+        0.7088930606842041,
+        0.16347526013851166
+      ],
+      "content": "Shuffle ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.1411510854959488,
+        0.02867128886282444,
+        0.2606022357940674,
+        0.06238701939582825
+      ],
+      "content": "Dynamic Online Form ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.28826355934143066,
+        0.19512557983398438,
+        0.5008353590965271,
+        0.23202691972255707
+      ],
+      "content": "A line or column.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.7212262749671936,
+        0.07296539098024368,
+        0.7370328307151794,
+        0.10231299698352814
+      ],
+      "content": "A symbol or icon indicating a cursor or pointer.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.04075073450803757,
+        0.06692830473184586,
+        0.058402493596076965,
+        0.10587447881698608
+      ],
+      "content": "Refresh or restart function.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.006495254579931498,
+        0.06763248890638351,
+        0.024247782304883003,
+        0.10493332892656326
+      ],
+      "content": "back arrow",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.2604562044143677,
+        0.034699417650699615,
+        0.27484986186027527,
+        0.061071574687957764
+      ],
+      "content": "Close or cancel function.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.023849086835980415,
+        0.06798407435417175,
+        0.0400167778134346,
+        0.10543076694011688
+      ],
+      "content": "A simple arrow or arrow.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.9778376817703247,
+        0.030549656599760056,
+        0.993431031703949,
+        0.06360112130641937
+      ],
+      "content": "A simple symbol or icon.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.9768308997154236,
+        0.06497650593519211,
+        0.9973299503326416,
+        0.10736924409866333
+      ],
+      "content": "A stick with a blue dot on it.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.26164600253105164,
+        0.07113636285066605,
+        0.2790253758430481,
+        0.10364562273025513
+      ],
+      "content": "A symbol or logo that represents the percentage or percentage of a person.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.0,
+        0.06689813733100891,
+        0.005052995402365923,
+        0.10505640506744385
+      ],
+      "content": "unanswerable",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    }
+  ]
+}

@@ -1,0 +1,537 @@
+{
+  "errors": [],
+  "local_annotated_image_path": "/Users/nasimo/Documents/omniparserscreenshot/local_store/action_002/parsed_annotated.png",
+  "local_csv_path": "/Users/nasimo/Documents/omniparserscreenshot/local_store/action_002/bbox.csv",
+  "local_prefix": "action_002",
+  "local_raw_image_path": "/Users/nasimo/Documents/omniparserscreenshot/local_store/action_002/raw_image.png",
+  "parsed_elements": [
+    {
+      "bbox": [
+        0.47077545523643494,
+        0.07878245413303375,
+        0.5292245149612427,
+        0.09713518619537354
+      ],
+      "content": " localhost:3000",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.8677662014961243,
+        0.12175469845533371,
+        0.9021990895271301,
+        0.14458370208740234
+      ],
+      "content": "Duck.ai",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.17505787312984467,
+        0.13473589718341827,
+        0.37702545523643494,
+        0.16293643414974213
+      ],
+      "content": "Dynamic Online Form Experiment",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.17390047013759613,
+        0.17412713170051575,
+        0.2916666567325592,
+        0.19740375876426697
+      ],
+      "content": "Emergency Contact Email",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.17332175374031067,
+        0.2350044697523117,
+        0.22251157462596893,
+        0.2618621289730072
+      ],
+      "content": "Full Name",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.17390047013759613,
+        0.32229185104370117,
+        0.29890045523643494,
+        0.3455684781074524
+      ],
+      "content": "O Phone O Email O SMS",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.17390047013759613,
+        0.350492388010025,
+        0.29369214177131653,
+        0.37332138419151306
+      ],
+      "content": "Emergency Contact Name",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.17390047013759613,
+        0.4145031273365021,
+        0.30005785822868347,
+        0.43598926067352295
+      ],
+      "content": "How did you hear about us?",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.17505787312984467,
+        0.4373321533203125,
+        0.21556712687015533,
+        0.4556848704814911
+      ],
+      "content": "Select one",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.8156828880310059,
+        0.49194270372390747,
+        0.9551504850387573,
+        0.5196956396102905
+      ],
+      "content": "Say hello to Duck.ai",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.7928240895271301,
+        0.5872873663902283,
+        0.9759837985038757,
+        0.6101163625717163
+      ],
+      "content": "Free and private chats, anonymized by",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.8240740895271301,
+        0.6051924824714661,
+        0.9427083134651184,
+        0.6298120021820068
+      ],
+      "content": "us. No account required.",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.8269675970077515,
+        0.6956132650375366,
+        0.9438657164573669,
+        0.7170993685722351
+      ],
+      "content": "Popular Al models from:",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.7948495149612427,
+        0.7170993685722351,
+        0.9748263955116272,
+        0.7417188882827759
+      ],
+      "content": " GPT * Claude MMistral LIama",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.7948495149612427,
+        0.8057296276092529,
+        0.9719328880310059,
+        0.8290062546730042
+      ],
+      "content": "No Al training on your conversations.",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.78125,
+        0.8487018942832947,
+        0.9875578880310059,
+        0.8733214139938354
+      ],
+      "content": "By clicking \"Agree and Continue,\" you accept Duck.ai's",
+      "interactivity": false,
+      "source": "box_ocr_content_ocr",
+      "type": "text"
+    },
+    {
+      "bbox": [
+        0.8517487049102783,
+        0.16641129553318024,
+        0.917047917842865,
+        0.2014370858669281
+      ],
+      "content": "4o-mini v ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.783636212348938,
+        0.9398468732833862,
+        0.8830481767654419,
+        0.9750600457191467
+      ],
+      "content": "Not Now ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.8869902491569519,
+        0.9398585557937622,
+        0.9852206110954285,
+        0.9749260544776917
+      ],
+      "content": "Disable Duck.ai ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5219845771789551,
+        0.3056798577308655,
+        0.5939951539039612,
+        0.337758332490921
+      ],
+      "content": "Submit ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.7821674346923828,
+        0.8977388739585876,
+        0.9850394129753113,
+        0.9331657886505127
+      ],
+      "content": "Agree and Continue ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.17214363813400269,
+        0.3705574572086334,
+        0.38315603137016296,
+        0.4074426293373108
+      ],
+      "content": "John Doe ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.17184677720069885,
+        0.25922828912734985,
+        0.38249802589416504,
+        0.29478105902671814
+      ],
+      "content": " Jane Doe ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.8184791803359985,
+        0.8670401573181152,
+        0.9483543634414673,
+        0.8860735297203064
+      ],
+      "content": "Privacy Policy and Terms of Service. ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.0009989738464355469,
+        0.028443176299333572,
+        0.13144515454769135,
+        0.060221172869205475
+      ],
+      "content": "Dynamic Online Form ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.776394784450531,
+        0.16496562957763672,
+        0.8371014595031738,
+        0.20228981971740723
+      ],
+      "content": "O History ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.5544670224189758,
+        0.1321386843919754,
+        0.593643069267273,
+        0.1630035787820816
+      ],
+      "content": "Shuffle ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.1741861253976822,
+        0.29672771692276,
+        0.38454070687294006,
+        0.3216768205165863
+      ],
+      "content": " Preferred Contact ",
+      "interactivity": true,
+      "source": "box_yolo_content_ocr",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.36016809940338135,
+        0.20211373269557953,
+        0.37642642855644226,
+        0.22486668825149536
+      ],
+      "content": "A thumbs up or thumbs up icon.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.040798790752887726,
+        0.06945133954286575,
+        0.05846225470304489,
+        0.10390939563512802
+      ],
+      "content": "Refresh or restart function.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.6999908685684204,
+        0.07087267190217972,
+        0.7164413928985596,
+        0.1031423807144165
+      ],
+      "content": "A simple line or rectangles.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.14289171993732452,
+        0.03545188903808594,
+        0.1544794887304306,
+        0.05888752639293671
+      ],
+      "content": "A simple plus sign or symbol.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.00647825188934803,
+        0.0700499564409256,
+        0.024161921814084053,
+        0.10241855680942535
+      ],
+      "content": "the back arrow.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.3720370829105377,
+        0.4363038241863251,
+        0.3805851638317108,
+        0.4538930654525757
+      ],
+      "content": "A low profile or profile indicator.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.024391481652855873,
+        0.06972082704305649,
+        0.03977053612470627,
+        0.10315277427434921
+      ],
+      "content": "A simple arrow or orientation.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.9731799364089966,
+        0.17243696749210358,
+        0.9881951212882996,
+        0.19976449012756348
+      ],
+      "content": "A simple symbol or design.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.719676673412323,
+        0.07221373170614243,
+        0.7377995252609253,
+        0.10233991593122482
+      ],
+      "content": "A symbol or icon indicating a thumbs up or thumbs up.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.12182974070310593,
+        0.035127922892570496,
+        0.13596345484256744,
+        0.059662964195013046
+      ],
+      "content": "Close or cancel function.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.26384222507476807,
+        0.07582226395606995,
+        0.27719801664352417,
+        0.09971372783184052
+      ],
+      "content": "A symbol or symbol related to religion or religion.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        4.822612027055584e-05,
+        0.05879584327340126,
+        0.0052818600088357925,
+        0.09144355356693268
+      ],
+      "content": "unanswerable",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.7759129405021667,
+        0.11840538680553436,
+        0.79243403673172,
+        0.15237092971801758
+      ],
+      "content": "the last action or move forward.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.9787120819091797,
+        0.03092804178595543,
+        0.9926868677139282,
+        0.06225191056728363
+      ],
+      "content": "A simple simple symbol or icon.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.9766880869865417,
+        0.06960458308458328,
+        0.9956786632537842,
+        0.10108830779790878
+      ],
+      "content": "A bar with a blue dot in the middle.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    },
+    {
+      "bbox": [
+        0.9753895998001099,
+        0.11940982192754745,
+        0.9925216436386108,
+        0.1450933814048767
+      ],
+      "content": "Close or cancel action.",
+      "interactivity": true,
+      "source": "box_yolo_content_yolo",
+      "type": "icon"
+    }
+  ]
+}

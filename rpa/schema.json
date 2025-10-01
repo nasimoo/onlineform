@@ -1,0 +1,58 @@
+{
+  "form_data": {
+    "Full Name": "Jane Smith",
+    "Phone Number": "(555) 123-4567",
+    "Email": "jane.smith@example.com",
+    "Emergency Contact Name": "John Smith",
+    "Emergency Contact Email": "john.smith@example.com",
+    "Preferred Contact": "email",
+    "Interests": ["tech", "music"],
+    "How did you hear about us?": "social",
+    "Additional Notes": "Looking forward to connecting with your team!",
+    "Subscribe to newsletter": true
+  },
+  "field_mappings": {
+    "name": "Full Name",
+    "phone": "Phone Number",
+    "email": "Email",
+    "emergencyName": "Emergency Contact Name",
+    "emergencyEmail": "Emergency Contact Email",
+    "contactPreference": "Preferred Contact",
+    "interests": "Interests",
+    "referralSource": "How did you hear about us?",
+    "notes": "Additional Notes",
+    "newsletter": "Subscribe to newsletter"
+  },
+  "field_types": {
+    "Full Name": "text",
+    "Phone Number": "tel",
+    "Email": "email",
+    "Emergency Contact Name": "text",
+    "Emergency Contact Email": "email",
+    "Preferred Contact": "radio",
+    "Interests": "checkbox-group",
+    "How did you hear about us?": "select",
+    "Additional Notes": "textarea",
+    "Subscribe to newsletter": "checkbox"
+  },
+  "options": {
+    "Preferred Contact": {
+      "phone": "Phone",
+      "email": "Email",
+      "sms": "SMS"
+    },
+    "Interests": {
+      "sports": "Sports",
+      "music": "Music",
+      "tech": "Tech",
+      "travel": "Travel"
+    },
+    "How did you hear about us?": {
+      "friend": "Friend/Family",
+      "search": "Search Engine",
+      "social": "Social Media",
+      "ad": "Advertisement",
+      "other": "Other"
+    }
+  }
+}
