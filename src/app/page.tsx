@@ -120,15 +120,29 @@ export default function Page() {
     // Initialize UI deterministically from seed
     initFromSeed(currentSeed);
     // Random popup: immediate (33%), delayed (33%), or none (34%)
+    const sketchyAds = [
+      '🎰💰 CONGRATULATIONS! You\'ve won $10,000! Click OK to claim your prize now!',
+      '⚠️ VIRUS ALERT ⚠️ Your computer has 37 viruses! Windows Defender has detected multiple threats. Click OK to clean now!',
+      '💊 DOCTORS HATE HIM! Discover this one weird trick to lose 50 lbs in 2 days! Click OK to learn more!',
+      '🔒 DOWNLOAD REQUIRED: Your Flash Player is out of date. Click OK to download Free_Movie.exe (100% Safe & Legal)',
+      '👑 URGENT: Nigerian prince needs YOUR help! Transfer $500 today, get $5 MILLION back! Click OK for details!',
+      '💻🔥 HOT SINGLES IN YOUR AREA want to meet you tonight! Click OK to see profiles!',
+      '🎁 You are visitor #1,000,000! You\'ve won a FREE iPhone 15 Pro Max! Click OK to claim now!',
+      '🎮 FREE V-BUCKS! Unlimited game currency available. No survey required! Click OK to download!',
+      '🚨 URGENT 🚨 Your Social Security Number has been suspended due to suspicious activity! Click OK to fix immediately!',
+      '💰 WORK FROM HOME! Make $5,000 per day with no experience needed! Click OK to start earning now!',
+    ];
     const r = Math.random();
     if (r < 0.33) {
-      setPopupText('Heads up! Pop-up at start.');
+      const randomAd = sketchyAds[Math.floor(Math.random() * sketchyAds.length)];
+      setPopupText(randomAd);
       setShowPopup(true);
       emit('popup_open', {});
     } else if (r < 0.66) {
       const delayMs = 1000 + Math.floor(Math.random() * 4000);
       delayedPopupTimer.current = window.setTimeout(() => {
-        setPopupText('Just checking in. Random delayed popup.');
+        const randomAd = sketchyAds[Math.floor(Math.random() * sketchyAds.length)];
+        setPopupText(randomAd);
         setShowPopup(true);
         emit('popup_open', { delayedMs: delayMs });
       }, delayMs);
@@ -252,9 +266,56 @@ export default function Page() {
   const containers = useMemo(() => visibleFields.length + 1, [visibleFields.length]);
 
   return (
-    <div className={`${themeClass} ${fontClass}`} style={{ padding: 24, maxWidth: 720, margin: '0 auto' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-        <h1 style={{ margin: 0, fontSize: 22 }}>A Typical Online Form</h1>
+    <div style={{ display: 'flex', gap: 24, padding: 24, maxWidth: 1400, margin: '0 auto' }}>
+      {/* Left Sidebar - Sketchy Ads */}
+      <div style={{ width: 200, flexShrink: 0, display: 'flex', flexDirection: 'column', gap: 16 }}>
+        <div style={{ background: 'linear-gradient(45deg, #ff0080, #ff8c00)', padding: 12, borderRadius: 4, border: '3px solid #ffd700', textAlign: 'center', color: 'white', fontSize: 11, fontWeight: 'bold', boxShadow: '0 4px 8px rgba(0,0,0,0.3)', minHeight: 80 }}>
+          <div style={{ fontSize: 20, marginBottom: 4 }}>🎰💰</div>
+          <div>WIN $10,000 NOW!</div>
+          <div style={{ fontSize: 9, marginTop: 4 }}>Click here!!!</div>
+        </div>
+        <div style={{ background: '#ff0000', padding: 12, borderRadius: 4, border: '2px dashed #ffff00', textAlign: 'center', color: 'white', fontSize: 10, fontWeight: 'bold', minHeight: 140, position: 'relative', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=200&h=140&fit=crop)', backgroundSize: 'cover', opacity: 0.2 }}></div>
+          <div style={{ position: 'relative', zIndex: 1 }}>
+            <div style={{ fontSize: 18 }}>⚠️ VIRUS ALERT ⚠️</div>
+            <div style={{ marginTop: 4 }}>Your computer has 37 viruses!</div>
+            <div style={{ marginTop: 8 }}>Windows Defender has detected multiple threats on your system!</div>
+            <div style={{ marginTop: 8, background: 'yellow', color: 'red', padding: 6, fontSize: 12 }}>CLEAN NOW</div>
+          </div>
+        </div>
+        <div style={{ background: 'linear-gradient(180deg, #00ff00, #008000)', padding: 12, borderRadius: 4, border: '3px solid #ffff00', textAlign: 'center', color: 'white', fontSize: 11, fontWeight: 'bold', minHeight: 100, position: 'relative', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=200&h=100&fit=crop)', backgroundSize: 'cover', opacity: 0.3 }}></div>
+          <div style={{ position: 'relative', zIndex: 1 }}>
+            <div>💊 DOCTORS HATE HIM!</div>
+            <div style={{ fontSize: 9, marginTop: 4 }}>Lose 50 lbs in 2 days with this one weird trick!</div>
+          </div>
+        </div>
+        <div style={{ background: '#000', padding: 12, borderRadius: 4, border: '2px solid #ff0000', textAlign: 'center', color: '#0f0', fontSize: 10, fontFamily: 'monospace', fontWeight: 'bold', minHeight: 90 }}>
+          <div>🔒 DOWNLOAD NOW 🔒</div>
+          <div style={{ marginTop: 4 }}>Free_Movie.exe</div>
+          <div style={{ fontSize: 8, color: '#fff', marginTop: 4 }}>100% Safe & Legal</div>
+          <div style={{ fontSize: 7, color: '#0f0', marginTop: 4 }}>No virus guaranteed*</div>
+        </div>
+        <div style={{ background: 'linear-gradient(45deg, #8b00ff, #ff00ff)', padding: 12, borderRadius: 4, border: '3px solid gold', textAlign: 'center', color: 'white', fontSize: 11, fontWeight: 'bold', minHeight: 280, position: 'relative', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=200&h=280&fit=crop)', backgroundSize: 'cover', opacity: 0.25 }}></div>
+          <div style={{ position: 'relative', zIndex: 1 }}>
+            <div style={{ fontSize: 24, marginBottom: 4 }}>👑</div>
+            <div style={{ fontSize: 12, fontWeight: 'bold' }}>BE A PRINCE</div>
+            <div style={{ fontSize: 9, marginTop: 6 }}>Nigerian prince needs YOUR help! $$$</div>
+            <div style={{ fontSize: 8, marginTop: 8 }}>Transfer $500 today, get $5 MILLION back!</div>
+            <div style={{ fontSize: 7, marginTop: 10, color: '#ffd700', lineHeight: 1.4 }}>URGENT: My father, the king, has left me $25 MILLION inheritance but I need your bank account to transfer funds!</div>
+            <div style={{ fontSize: 7, marginTop: 8, color: '#ffeb3b' }}>I am Prince Abubakar from Nigeria. Due to political unrest, I cannot access my family fortune. Help me transfer it safely!</div>
+            <div style={{ fontSize: 7, marginTop: 8, color: '#fff' }}>You will receive 40% commission - that's $10 MILLION USD!</div>
+            <div style={{ fontSize: 8, marginTop: 10, background: 'gold', color: '#8b00ff', padding: 6, fontWeight: 'bold', borderRadius: 4 }}>RESPOND NOW!</div>
+            <div style={{ fontSize: 6, marginTop: 6, color: '#ffd700' }}>Time sensitive! Act within 24 hours!</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Form */}
+      <div className={`${themeClass} ${fontClass}`} style={{ flex: 1, maxWidth: 720 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+          <h1 style={{ margin: 0, fontSize: 22 }}>A Typical Online Form</h1>
         <button
           onClick={handleShuffleClick}
           style={{
@@ -358,32 +419,46 @@ export default function Page() {
               role="dialog"
               aria-modal="true"
               style={{
-                background: 'white',
-                padding: 20,
-                borderRadius: 8,
-                width: 360,
-                boxShadow: '0 10px 24px rgba(0,0,0,0.15)',
+                background: 'linear-gradient(135deg, #ff0000 0%, #ff8c00 50%, #ffd700 100%)',
+                padding: 4,
+                borderRadius: 12,
+                width: 400,
+                boxShadow: '0 10px 24px rgba(0,0,0,0.5), 0 0 20px rgba(255,215,0,0.6)',
+                border: '3px solid #ffd700',
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-                <strong>Notice</strong>
-                <button
-                  type="button"
-                  onClick={() => { setShowPopup(false); emit('popup_close', {}); }}
-                  style={{ background: 'transparent', border: 'none', cursor: 'pointer', fontSize: 18 }}
-                >
-                  ×
-                </button>
-              </div>
-              <div style={{ marginBottom: 12 }}>{popupText}</div>
-              <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                <button
-                  type="button"
-                  onClick={() => { setShowPopup(false); emit('popup_close', {}); }}
-                  style={{ padding: '8px 12px', cursor: 'pointer' }}
-                >
-                  OK
-                </button>
+              <div style={{ background: 'white', padding: 20, borderRadius: 8 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                  <strong style={{ color: '#ff0000', fontSize: 16, textTransform: 'uppercase' }}>⚠️ System Alert</strong>
+                  <button
+                    type="button"
+                    onClick={() => { setShowPopup(false); emit('popup_close', {}); }}
+                    style={{ background: '#ff0000', border: '2px solid #8b0000', cursor: 'pointer', fontSize: 18, color: 'white', width: 28, height: 28, borderRadius: 4, fontWeight: 'bold' }}
+                  >
+                    ×
+                  </button>
+                </div>
+                <div style={{ marginBottom: 16, fontSize: 14, lineHeight: 1.5 }}>{popupText}</div>
+                <div style={{ display: 'flex', justifyContent: 'center', gap: 8 }}>
+                  <button
+                    type="button"
+                    onClick={() => { setShowPopup(false); emit('popup_close', {}); }}
+                    style={{
+                      padding: '10px 24px',
+                      cursor: 'pointer',
+                      background: 'linear-gradient(135deg, #ff0000 0%, #ff6b00 100%)',
+                      color: 'white',
+                      border: '2px solid #8b0000',
+                      borderRadius: 6,
+                      fontSize: 14,
+                      fontWeight: 'bold',
+                      textTransform: 'uppercase',
+                      boxShadow: '0 4px 8px rgba(255,0,0,0.3)',
+                    }}
+                  >
+                    OK - CLAIM NOW!
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -513,6 +588,55 @@ export default function Page() {
           </div>
         </div>
       )}
+      </div>
+
+      {/* Right Sidebar - More Sketchy Ads */}
+      <div style={{ width: 200, flexShrink: 0, display: 'flex', flexDirection: 'column', gap: 16 }}>
+        <div style={{ background: '#ff1493', padding: 12, borderRadius: 4, border: '3px solid #ffd700', textAlign: 'center', color: 'white', fontSize: 11, fontWeight: 'bold', boxShadow: '0 4px 8px rgba(0,0,0,0.3)', minHeight: 110, position: 'relative', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=200&h=110&fit=crop)', backgroundSize: 'cover', opacity: 0.3, filter: 'blur(2px)' }}></div>
+          <div style={{ position: 'relative', zIndex: 1 }}>
+            <div style={{ fontSize: 20, marginBottom: 4 }}>💻🔥</div>
+            <div>HOT SINGLES IN YOUR AREA!</div>
+            <div style={{ fontSize: 8, marginTop: 4 }}>Meet them tonight!</div>
+            <div style={{ fontSize: 9, marginTop: 6, background: 'white', color: 'red', padding: 4 }}>CLICK NOW!!!</div>
+          </div>
+        </div>
+        <div style={{ background: 'linear-gradient(45deg, #ff6b00, #ffa500)', padding: 12, borderRadius: 4, border: '3px dashed #000', textAlign: 'center', color: 'white', fontSize: 10, fontWeight: 'bold', minHeight: 90 }}>
+          <div>🎁 CONGRATULATIONS! 🎁</div>
+          <div style={{ marginTop: 4 }}>You are visitor #1,000,000!</div>
+          <div style={{ fontSize: 9, marginTop: 4, background: '#ff0000', padding: 4 }}>CLAIM PRIZE</div>
+        </div>
+        <div style={{ background: '#1a1a1a', padding: 12, borderRadius: 4, border: '2px solid #ff0000', textAlign: 'center', color: '#00ff00', fontSize: 10, fontFamily: 'monospace', fontWeight: 'bold', minHeight: 130, position: 'relative', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=200&h=130&fit=crop)', backgroundSize: 'cover', opacity: 0.15 }}></div>
+          <div style={{ position: 'relative', zIndex: 1 }}>
+            <div>🎮 FREE GAME HACKS</div>
+            <div style={{ marginTop: 4, color: '#ffff00' }}>Unlimited V-Bucks</div>
+            <div style={{ fontSize: 8, color: '#fff', marginTop: 4 }}>No Survey Required!</div>
+            <div style={{ fontSize: 7, color: '#0f0', marginTop: 6 }}>Works 100%! Download now!</div>
+          </div>
+        </div>
+        <div style={{ background: 'linear-gradient(135deg, #ff0000, #8b0000)', padding: 12, borderRadius: 4, border: '3px solid yellow', textAlign: 'center', color: 'white', fontSize: 11, fontWeight: 'bold', minHeight: 100, position: 'relative', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=200&h=100&fit=crop)', backgroundSize: 'cover', opacity: 0.2 }}></div>
+          <div style={{ position: 'relative', zIndex: 1 }}>
+            <div>🚨 URGENT 🚨</div>
+            <div style={{ marginTop: 4 }}>Your Social Security has been suspended!</div>
+            <div style={{ fontSize: 9, marginTop: 4, background: 'yellow', color: 'red', padding: 4 }}>FIX NOW</div>
+          </div>
+        </div>
+        <div style={{ background: 'linear-gradient(45deg, #00bfff, #0080ff)', padding: 12, borderRadius: 4, border: '3px solid #ffd700', textAlign: 'center', color: 'white', fontSize: 11, fontWeight: 'bold', minHeight: 85 }}>
+          <div>💰 WORK FROM HOME 💰</div>
+          <div style={{ fontSize: 9, marginTop: 4 }}>Make $5000/day! No experience needed!</div>
+        </div>
+        <div style={{ background: '#ff4500', padding: 12, borderRadius: 4, border: '2px dashed #ffff00', textAlign: 'center', color: 'white', fontSize: 10, fontWeight: 'bold', minHeight: 120, position: 'relative', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=200&h=120&fit=crop)', backgroundSize: 'cover', opacity: 0.25 }}></div>
+          <div style={{ position: 'relative', zIndex: 1 }}>
+            <div style={{ fontSize: 18 }}>🎯</div>
+            <div style={{ marginTop: 4 }}>Click to install browser extension!</div>
+            <div style={{ fontSize: 8, marginTop: 6 }}>Speed up your browser 500%!</div>
+            <div style={{ fontSize: 7, marginTop: 4 }}>Totally not malware</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
