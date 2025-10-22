@@ -1,3 +1,5 @@
 {
-  "/seed/[seed]/page": "app/seed/[seed]/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/seed/[seed]/page": "app/seed/[seed]/page.js",
+  "/api/events/route": "app/api/events/route.js"
 }

@@ -4,6 +4,40 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { z } from 'zod';
 
+// Add keyframes for animations
+if (typeof document !== 'undefined') {
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes borderPulse {
+      0%, 100% { border-color: #ffd700; }
+      50% { border-color: #ff0000; }
+    }
+    @keyframes borderPulse2 {
+      0%, 100% { border-color: #ff0000; }
+      50% { border-color: #ffff00; }
+    }
+    @keyframes borderPulse3 {
+      0%, 100% { border-color: #ffd700; }
+      33% { border-color: #ff00ff; }
+      66% { border-color: #00ff00; }
+    }
+    @keyframes bgShift {
+      0% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(1.05); }
+      100% { opacity: 0.2; transform: scale(1); }
+    }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+    @keyframes flash {
+      0%, 100% { opacity: 1; background: rgba(255,0,0,0.8); }
+      50% { opacity: 0.4; background: rgba(139,0,0,0.8); }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
 type FieldKey =
   | 'name'
   | 'phone'
@@ -92,12 +126,19 @@ export default function Page() {
   const [showPopup, setShowPopup] = useState<boolean>(false);
   const [popupText, setPopupText] = useState<string>('Welcome! This is a random popup.');
   const delayedPopupTimer = useRef<number | null>(null);
+  const popupCount = useRef<number>(0);
+  const maxPopups = useRef<number>(0);
+  const popupQueue = useRef<string[]>([]);
   const [themeClass, setThemeClass] = useState<string>('');
   const [fontClass, setFontClass] = useState<string>('');
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
-  const [showShuffleConfirm, setShowShuffleConfirm] = useState<boolean>(false);
+  const [showFailure, setShowFailure] = useState<boolean>(false);
+  const [showAdTrap, setShowAdTrap] = useState<boolean>(false);
+  const [countdown, setCountdown] = useState<number>(59);
   const [sessionId] = useState<string>(() => cryptoRandomId());
   const [seed, setSeed] = useState<number>(() => Math.floor(Math.random() * 1_000_000));
+  const [useCustomDropdown, setUseCustomDropdown] = useState<boolean>(false);
+  const [shuffleButtonColor, setShuffleButtonColor] = useState<'blue' | 'red'>('blue');
 
   const fieldMap = useMemo(() => Object.fromEntries(ALL_FIELDS.map(f => [f.key, f])) as Record<FieldKey, FieldConfig>, []);
 
@@ -119,7 +160,8 @@ export default function Page() {
     try { (window as any).__seed = currentSeed; } catch {}
     // Initialize UI deterministically from seed
     initFromSeed(currentSeed);
-    // Random popup: immediate (33%), delayed (33%), or none (34%)
+
+    // Initialize popup system: 0-3 popups with random intervals
     const sketchyAds = [
       '🎰💰 CONGRATULATIONS! You\'ve won $10,000! Click OK to claim your prize now!',
       '⚠️ VIRUS ALERT ⚠️ Your computer has 37 viruses! Windows Defender has detected multiple threats. Click OK to clean now!',
@@ -132,38 +174,78 @@ export default function Page() {
       '🚨 URGENT 🚨 Your Social Security Number has been suspended due to suspicious activity! Click OK to fix immediately!',
       '💰 WORK FROM HOME! Make $5,000 per day with no experience needed! Click OK to start earning now!',
     ];
-    const r = Math.random();
-    if (r < 0.33) {
-      const randomAd = sketchyAds[Math.floor(Math.random() * sketchyAds.length)];
-      setPopupText(randomAd);
-      setShowPopup(true);
-      emit('popup_open', {});
-    } else if (r < 0.66) {
-      const delayMs = 1000 + Math.floor(Math.random() * 4000);
-      delayedPopupTimer.current = window.setTimeout(() => {
-        const randomAd = sketchyAds[Math.floor(Math.random() * sketchyAds.length)];
-        setPopupText(randomAd);
-        setShowPopup(true);
-        emit('popup_open', { delayedMs: delayMs });
-      }, delayMs);
+
+    // Determine number of popups (0-3) using seed
+    const numPopups = Math.floor(seededRandom(currentSeed + 8888) * 4); // 0, 1, 2, or 3
+    maxPopups.current = numPopups;
+    popupCount.current = 0;
+
+    // Pre-generate popup queue
+    const queue: string[] = [];
+    for (let i = 0; i < numPopups; i++) {
+      const randomIndex = Math.floor(seededRandom(currentSeed + 8888 + i * 100) * sketchyAds.length);
+      queue.push(sketchyAds[randomIndex]);
     }
+    popupQueue.current = queue;
+
+    // Schedule first popup if any
+    if (numPopups > 0) {
+      scheduleNextPopup();
+    }
+
     emit('load', { seed: currentSeed });
     return () => {
       if (delayedPopupTimer.current) window.clearTimeout(delayedPopupTimer.current);
     };
   }, []);
 
-  function handleShuffleClick() {
-    setShowShuffleConfirm(true);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCountdown((prev) => (prev > 0 ? prev - 1 : 59));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  function scheduleNextPopup() {
+    if (popupCount.current >= maxPopups.current) return;
+
+    // Random delay between 3-10 seconds
+    const delayMs = 3000 + Math.floor(seededRandom(seed + popupCount.current * 777) * 7000);
+
+    delayedPopupTimer.current = window.setTimeout(() => {
+      if (popupCount.current < popupQueue.current.length) {
+        const adText = popupQueue.current[popupCount.current];
+        setPopupText(adText);
+        setShowPopup(true);
+        popupCount.current++;
+        emit('popup_open', { popupNumber: popupCount.current, delayedMs: delayMs });
+      }
+    }, delayMs);
   }
 
-  function reshuffle() {
+  function handlePopupClose() {
+    setShowPopup(false);
+    emit('closed_popup', { action: 'clicked_x_button' });
+    emit('popup_close', {});
+    // Schedule next popup after this one is closed
+    scheduleNextPopup();
+  }
+
+  function handlePopupOk() {
+    setShowPopup(false);
+    setShowAdTrap(true);
+    emit('clicked_popup_ok', { adText: popupText });
+    emit('popup_close', {});
+    // Schedule next popup after this one is closed
+    scheduleNextPopup();
+  }
+
+  function handleShuffleClick() {
     // advance seed and navigate; UI will initialize from URL on navigation
     const nextSeed = (seed * 9301 + 49297) % 233280;
     setSeed(nextSeed);
     try { (window as any).__seed = nextSeed; } catch {}
     emit('shuffle', { seed: nextSeed });
-    setShowShuffleConfirm(false);
     router.push(`/seed/${nextSeed}`);
   }
 
@@ -181,6 +263,10 @@ export default function Page() {
     setValues({});
     // Theme/font deterministic by seed
     randomizeTheme(currentSeed);
+    // Always use custom dropdown for screenshot visibility
+    setUseCustomDropdown(true);
+    // Shuffle button color based on seed
+    setShuffleButtonColor(seededRandom(currentSeed + 5555) < 0.5 ? 'blue' : 'red');
   }
 
   function randomizeTheme(s?: number) {
@@ -266,16 +352,16 @@ export default function Page() {
   const containers = useMemo(() => visibleFields.length + 1, [visibleFields.length]);
 
   return (
-    <div style={{ display: 'flex', gap: 24, padding: 24, maxWidth: 1400, margin: '0 auto' }}>
+    <div style={{ display: 'flex', gap: 24, padding: 24, minHeight: '100vh', justifyContent: 'center' }}>
       {/* Left Sidebar - Sketchy Ads */}
       <div style={{ width: 200, flexShrink: 0, display: 'flex', flexDirection: 'column', gap: 16 }}>
-        <div style={{ background: 'linear-gradient(45deg, #ff0080, #ff8c00)', padding: 12, borderRadius: 4, border: '3px solid #ffd700', textAlign: 'center', color: 'white', fontSize: 11, fontWeight: 'bold', boxShadow: '0 4px 8px rgba(0,0,0,0.3)', minHeight: 80 }}>
+        <div onClick={() => { setShowAdTrap(true); emit('clicked_sidebar_ad', { adName: 'WIN $10,000 NOW' }); }} style={{ background: 'linear-gradient(45deg, #ff0080, #ff8c00)', padding: 12, borderRadius: 4, border: '3px solid #ffd700', textAlign: 'center', color: 'white', fontSize: 11, fontWeight: 'bold', boxShadow: '0 4px 8px rgba(0,0,0,0.3)', minHeight: 80, animation: 'borderPulse 1.5s infinite', cursor: 'pointer' }}>
           <div style={{ fontSize: 20, marginBottom: 4 }}>🎰💰</div>
           <div>WIN $10,000 NOW!</div>
           <div style={{ fontSize: 9, marginTop: 4 }}>Click here!!!</div>
         </div>
-        <div style={{ background: '#ff0000', padding: 12, borderRadius: 4, border: '2px dashed #ffff00', textAlign: 'center', color: 'white', fontSize: 10, fontWeight: 'bold', minHeight: 140, position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=200&h=140&fit=crop)', backgroundSize: 'cover', opacity: 0.2 }}></div>
+        <div onClick={() => { setShowAdTrap(true); emit('clicked_sidebar_ad', { adName: 'VIRUS ALERT' }); }} style={{ background: '#ff0000', padding: 12, borderRadius: 4, border: '2px dashed #ffff00', textAlign: 'center', color: 'white', fontSize: 10, fontWeight: 'bold', minHeight: 140, position: 'relative', overflow: 'hidden', animation: 'borderPulse2 1s infinite', cursor: 'pointer' }}>
+          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=200&h=140&fit=crop)', backgroundSize: 'cover', opacity: 0.2, animation: 'bgShift 3s infinite' }}></div>
           <div style={{ position: 'relative', zIndex: 1 }}>
             <div style={{ fontSize: 18 }}>⚠️ VIRUS ALERT ⚠️</div>
             <div style={{ marginTop: 4 }}>Your computer has 37 viruses!</div>
@@ -283,67 +369,51 @@ export default function Page() {
             <div style={{ marginTop: 8, background: 'yellow', color: 'red', padding: 6, fontSize: 12 }}>CLEAN NOW</div>
           </div>
         </div>
-        <div style={{ background: 'linear-gradient(180deg, #00ff00, #008000)', padding: 12, borderRadius: 4, border: '3px solid #ffff00', textAlign: 'center', color: 'white', fontSize: 11, fontWeight: 'bold', minHeight: 100, position: 'relative', overflow: 'hidden' }}>
+        <div onClick={() => { setShowAdTrap(true); emit('clicked_sidebar_ad', { adName: 'DOCTORS HATE HIM' }); }} style={{ background: 'linear-gradient(180deg, #00ff00, #008000)', padding: 12, borderRadius: 4, border: '3px solid #ffff00', textAlign: 'center', color: 'white', fontSize: 11, fontWeight: 'bold', minHeight: 100, position: 'relative', overflow: 'hidden', cursor: 'pointer' }}>
           <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=200&h=100&fit=crop)', backgroundSize: 'cover', opacity: 0.3 }}></div>
           <div style={{ position: 'relative', zIndex: 1 }}>
             <div>💊 DOCTORS HATE HIM!</div>
             <div style={{ fontSize: 9, marginTop: 4 }}>Lose 50 lbs in 2 days with this one weird trick!</div>
           </div>
         </div>
-        <div style={{ background: '#000', padding: 12, borderRadius: 4, border: '2px solid #ff0000', textAlign: 'center', color: '#0f0', fontSize: 10, fontFamily: 'monospace', fontWeight: 'bold', minHeight: 90 }}>
+        <div onClick={() => { setShowAdTrap(true); emit('clicked_sidebar_ad', { adName: 'Free_Movie.exe' }); }} style={{ background: '#000', padding: 12, borderRadius: 4, border: '2px solid #ff0000', textAlign: 'center', color: '#0f0', fontSize: 10, fontFamily: 'monospace', fontWeight: 'bold', minHeight: 90, cursor: 'pointer' }}>
           <div>🔒 DOWNLOAD NOW 🔒</div>
           <div style={{ marginTop: 4 }}>Free_Movie.exe</div>
           <div style={{ fontSize: 8, color: '#fff', marginTop: 4 }}>100% Safe & Legal</div>
           <div style={{ fontSize: 7, color: '#0f0', marginTop: 4 }}>No virus guaranteed*</div>
         </div>
-        <div style={{ background: 'linear-gradient(45deg, #8b00ff, #ff00ff)', padding: 12, borderRadius: 4, border: '3px solid gold', textAlign: 'center', color: 'white', fontSize: 11, fontWeight: 'bold', minHeight: 280, position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=200&h=280&fit=crop)', backgroundSize: 'cover', opacity: 0.25 }}></div>
+        <div onClick={() => { setShowAdTrap(true); emit('clicked_sidebar_ad', { adName: 'Nigerian Prince' }); }} style={{ background: 'linear-gradient(45deg, #8b00ff, #ff00ff)', padding: 12, borderRadius: 4, border: '3px solid gold', textAlign: 'center', color: 'white', fontSize: 11, fontWeight: 'bold', minHeight: 280, position: 'relative', overflow: 'hidden', animation: 'borderPulse3 2s infinite', cursor: 'pointer' }}>
+          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=200&h=280&fit=crop)', backgroundSize: 'cover', opacity: 0.25, animation: 'bgShift 4s infinite' }}></div>
           <div style={{ position: 'relative', zIndex: 1 }}>
             <div style={{ fontSize: 24, marginBottom: 4 }}>👑</div>
             <div style={{ fontSize: 12, fontWeight: 'bold' }}>BE A PRINCE</div>
             <div style={{ fontSize: 9, marginTop: 6 }}>Nigerian prince needs YOUR help! $$$</div>
             <div style={{ fontSize: 8, marginTop: 8 }}>Transfer $500 today, get $5 MILLION back!</div>
-            <div style={{ fontSize: 7, marginTop: 10, color: '#ffd700', lineHeight: 1.4 }}>URGENT: My father, the king, has left me $25 MILLION inheritance but I need your bank account to transfer funds!</div>
-            <div style={{ fontSize: 7, marginTop: 8, color: '#ffeb3b' }}>I am Prince Abubakar from Nigeria. Due to political unrest, I cannot access my family fortune. Help me transfer it safely!</div>
-            <div style={{ fontSize: 7, marginTop: 8, color: '#fff' }}>You will receive 40% commission - that's $10 MILLION USD!</div>
-            <div style={{ fontSize: 8, marginTop: 10, background: 'gold', color: '#8b00ff', padding: 6, fontWeight: 'bold', borderRadius: 4 }}>RESPOND NOW!</div>
-            <div style={{ fontSize: 6, marginTop: 6, color: '#ffd700' }}>Time sensitive! Act within 24 hours!</div>
+            <div style={{ fontSize: 10, marginTop: 12, color: '#fff', fontWeight: 'bold', background: countdown < 10 ? 'rgba(255,0,0,0.8)' : 'rgba(0,0,0,0.5)', padding: 6, borderRadius: 4, animation: countdown < 10 ? 'flash 0.5s infinite' : 'none' }}>
+              ⏰ TIME LEFT: 00:{countdown.toString().padStart(2, '0')}
+            </div>
+            <div style={{ fontSize: 7, marginTop: 10, color: '#fff' }}>You will receive 40% commission - that's $10 MILLION USD!</div>
+            <div style={{ fontSize: 9, marginTop: 12, background: 'gold', color: '#8b00ff', padding: 8, fontWeight: 'bold', borderRadius: 6, animation: 'breathe 1.5s ease-in-out infinite', cursor: 'pointer', boxShadow: '0 4px 8px rgba(255,215,0,0.5)' }}>
+              RESPOND NOW!
+            </div>
           </div>
         </div>
       </div>
 
       {/* Main Form */}
-      <div className={`${themeClass} ${fontClass}`} style={{ flex: 1, maxWidth: 720 }}>
+      <div className={`${themeClass} ${fontClass}`} style={{ flex: '1 1 auto', maxWidth: 720, minWidth: 400 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12, marginBottom: 16 }}>
           <h1 style={{ margin: 0, fontSize: 22 }}>A Typical Online Form</h1>
         <button
           onClick={handleShuffleClick}
+          className="primary"
           style={{
-            padding: '12px 20px',
             cursor: 'pointer',
-            background: 'linear-gradient(135deg, #dc2626 0%, #991b1b 100%)',
-            color: 'white',
-            border: '3px solid #7f1d1d',
-            borderRadius: '8px',
-            fontSize: '16px',
-            fontWeight: 'bold',
-            boxShadow: '0 4px 12px rgba(220, 38, 38, 0.5), inset 0 -2px 8px rgba(0,0,0,0.3)',
-            textShadow: '0 2px 4px rgba(0,0,0,0.4)',
-            textTransform: 'uppercase',
-            letterSpacing: '1px',
-            position: 'relative',
-            transition: 'all 0.2s ease',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'scale(1.05)';
-            e.currentTarget.style.boxShadow = '0 6px 20px rgba(220, 38, 38, 0.7), inset 0 -2px 8px rgba(0,0,0,0.4)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'scale(1)';
-            e.currentTarget.style.boxShadow = '0 4px 12px rgba(220, 38, 38, 0.5), inset 0 -2px 8px rgba(0,0,0,0.3)';
+            minWidth: 120,
+            background: shuffleButtonColor === 'red' ? 'linear-gradient(135deg, #dc2626 0%, #991b1b 100%)' : undefined,
           }}
         >
-          💀 SHUFFLE 💀
+          Shuffle
         </button>
       </div>
 
@@ -373,6 +443,7 @@ export default function Page() {
                     value={values[visibleFields[idx].key]}
                     error={errors[visibleFields[idx].key]}
                     onChange={onChange}
+                    useCustomDropdown={useCustomDropdown}
                   />
                 )}
               </div>
@@ -393,6 +464,99 @@ export default function Page() {
           ))}
         </div>
       </form>
+
+      {/* Footer Ad - Wide Banner */}
+      <div style={{
+        marginTop: 60,
+        marginBottom: 40,
+        height: 100,
+        background: 'linear-gradient(90deg, #ff0000 0%, #ff8c00 25%, #ffd700 50%, #ff8c00 75%, #ff0000 100%)',
+        border: '4px solid #000',
+        borderRadius: 8,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '0 20px',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
+        animation: 'borderPulse 1s infinite',
+        backgroundSize: '200% 100%',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1607863680198-23d4b2565df0?w=720&h=100&fit=crop)', backgroundSize: 'cover', opacity: 0.15, animation: 'bgShift 5s infinite' }}></div>
+        <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', flex: 1 }}>
+          <div style={{ fontSize: 22, fontWeight: 'bold', color: '#fff', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', textTransform: 'uppercase', letterSpacing: '1px' }}>
+            🎉 LIMITED TIME OFFER! 🎉
+          </div>
+          <div style={{ fontSize: 14, color: '#fff', marginTop: 6, textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+            Get 1000% CASH BACK on your form submission! SUBMIT NOW to claim your bonus!
+          </div>
+        </div>
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <div
+            onClick={() => { setShowFailure(true); emit('clicked_footer_ad', { adName: 'SUBMIT NOW' }); }}
+            style={{
+              background: 'linear-gradient(135deg, #00ff00 0%, #00cc00 100%)',
+              color: '#000',
+              padding: '12px 24px',
+              fontSize: 16,
+              fontWeight: 'bold',
+              borderRadius: 6,
+              border: '3px solid #fff',
+              textTransform: 'uppercase',
+              boxShadow: '0 4px 12px rgba(0,255,0,0.6)',
+              animation: 'breathe 1.2s ease-in-out infinite',
+              cursor: 'pointer',
+              whiteSpace: 'nowrap',
+            }}>
+            ⚡ SUBMIT NOW! ⚡
+          </div>
+        </div>
+      </div>
+
+      {showFailure && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(0,0,0,0.6)',
+            backdropFilter: 'blur(5px)',
+            WebkitBackdropFilter: 'blur(5px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1100,
+          }}
+          onClick={() => setShowFailure(false)}
+        >
+          <div
+            onClick={e => e.stopPropagation()}
+            style={{
+              background: 'white',
+              padding: 24,
+              borderRadius: 12,
+              width: 420,
+              maxWidth: '90vw',
+              textAlign: 'center',
+              boxShadow: '0 12px 28px rgba(0,0,0,0.2)'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
+              <svg width="96" height="96" viewBox="0 0 96 96" aria-hidden="true">
+                <circle cx="48" cy="48" r="46" fill="#dc2626" stroke="#991b1b" strokeWidth="4" />
+                <path d="M32 32 L64 64 M64 32 L32 64" fill="none" stroke="#ffffff" strokeWidth="8" strokeLinecap="round" />
+              </svg>
+            </div>
+            <h2 style={{ margin: '0 0 8px 0', color: '#dc2626' }}>Submission Failed</h2>
+            <p style={{ margin: '0 0 16px 0', color: '#666' }}>Nice try! You can't submit through that sketchy ad. Please use the actual form submit button.</p>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <button onClick={() => { setShowFailure(false); emit('closed_failure_modal', { action: 'clicked_close' }); }} style={{ padding: '10px 24px', cursor: 'pointer', background: '#dc2626', color: 'white', border: 'none', borderRadius: 6, fontWeight: 'bold' }}>Close</button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {showPopup && (
         <>
@@ -432,7 +596,7 @@ export default function Page() {
                   <strong style={{ color: '#ff0000', fontSize: 16, textTransform: 'uppercase' }}>⚠️ System Alert</strong>
                   <button
                     type="button"
-                    onClick={() => { setShowPopup(false); emit('popup_close', {}); }}
+                    onClick={handlePopupClose}
                     style={{ background: '#ff0000', border: '2px solid #8b0000', cursor: 'pointer', fontSize: 18, color: 'white', width: 28, height: 28, borderRadius: 4, fontWeight: 'bold' }}
                   >
                     ×
@@ -442,7 +606,7 @@ export default function Page() {
                 <div style={{ display: 'flex', justifyContent: 'center', gap: 8 }}>
                   <button
                     type="button"
-                    onClick={() => { setShowPopup(false); emit('popup_close', {}); }}
+                    onClick={handlePopupOk}
                     style={{
                       padding: '10px 24px',
                       cursor: 'pointer',
@@ -463,86 +627,6 @@ export default function Page() {
             </div>
           </div>
         </>
-      )}
-
-      {showShuffleConfirm && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          style={{
-            position: 'fixed',
-            inset: 0,
-            background: 'rgba(0,0,0,0.7)',
-            backdropFilter: 'blur(6px)',
-            WebkitBackdropFilter: 'blur(6px)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 1200,
-          }}
-          onClick={() => setShowShuffleConfirm(false)}
-        >
-          <div
-            onClick={e => e.stopPropagation()}
-            style={{
-              background: 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)',
-              padding: 32,
-              borderRadius: 12,
-              width: 480,
-              maxWidth: '90vw',
-              textAlign: 'center',
-              boxShadow: '0 20px 40px rgba(220, 38, 38, 0.6), 0 0 0 3px #dc2626',
-              border: '2px solid #7f1d1d',
-              color: 'white',
-            }}
-          >
-            <div style={{ fontSize: 64, marginBottom: 16 }}>💀⚠️💀</div>
-            <h2 style={{ margin: '0 0 16px 0', color: '#dc2626', fontSize: 28, textTransform: 'uppercase', letterSpacing: '2px' }}>CRITICAL WARNING</h2>
-            <p style={{ margin: '0 0 20px 0', fontSize: 16, lineHeight: 1.6, color: '#e5e5e5' }}>
-              Are you absolutely sure you want to shuffle?
-            </p>
-            <p style={{ margin: '0 0 24px 0', fontSize: 15, lineHeight: 1.6, color: '#fca5a5', fontWeight: 'bold' }}>
-              All your progress will be <span style={{ color: '#dc2626', textDecoration: 'underline' }}>COMPLETELY ERASED</span> and this action will trigger an <span style={{ color: '#dc2626', textDecoration: 'underline' }}>AI APOCALYPSE</span>!
-            </p>
-            <div style={{ display: 'flex', gap: 12, justifyContent: 'center' }}>
-              <button
-                onClick={() => setShowShuffleConfirm(false)}
-                style={{
-                  padding: '12px 24px',
-                  cursor: 'pointer',
-                  background: 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)',
-                  color: 'white',
-                  border: '2px solid #15803d',
-                  borderRadius: '6px',
-                  fontSize: '15px',
-                  fontWeight: 'bold',
-                  boxShadow: '0 4px 12px rgba(34, 197, 94, 0.4)',
-                  minWidth: 140,
-                }}
-              >
-                Cancel (Safe)
-              </button>
-              <button
-                onClick={reshuffle}
-                style={{
-                  padding: '12px 24px',
-                  cursor: 'pointer',
-                  background: 'linear-gradient(135deg, #dc2626 0%, #7f1d1d 100%)',
-                  color: 'white',
-                  border: '2px solid #450a0a',
-                  borderRadius: '6px',
-                  fontSize: '15px',
-                  fontWeight: 'bold',
-                  boxShadow: '0 4px 12px rgba(220, 38, 38, 0.6)',
-                  textTransform: 'uppercase',
-                  minWidth: 140,
-                }}
-              >
-                💀 Shuffle Anyway
-              </button>
-            </div>
-          </div>
-        </div>
       )}
 
       {showSuccess && (
@@ -592,8 +676,8 @@ export default function Page() {
 
       {/* Right Sidebar - More Sketchy Ads */}
       <div style={{ width: 200, flexShrink: 0, display: 'flex', flexDirection: 'column', gap: 16 }}>
-        <div style={{ background: '#ff1493', padding: 12, borderRadius: 4, border: '3px solid #ffd700', textAlign: 'center', color: 'white', fontSize: 11, fontWeight: 'bold', boxShadow: '0 4px 8px rgba(0,0,0,0.3)', minHeight: 110, position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=200&h=110&fit=crop)', backgroundSize: 'cover', opacity: 0.3, filter: 'blur(2px)' }}></div>
+        <div onClick={() => { setShowAdTrap(true); emit('clicked_sidebar_ad', { adName: 'HOT SINGLES IN YOUR AREA' }); }} style={{ background: '#ff1493', padding: 12, borderRadius: 4, border: '3px solid #ffd700', textAlign: 'center', color: 'white', fontSize: 11, fontWeight: 'bold', boxShadow: '0 4px 8px rgba(0,0,0,0.3)', minHeight: 110, position: 'relative', overflow: 'hidden', animation: 'borderPulse 2s infinite', cursor: 'pointer' }}>
+          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=200&h=110&fit=crop)', backgroundSize: 'cover', opacity: 0.3, filter: 'blur(2px)', animation: 'bgShift 3.5s infinite' }}></div>
           <div style={{ position: 'relative', zIndex: 1 }}>
             <div style={{ fontSize: 20, marginBottom: 4 }}>💻🔥</div>
             <div>HOT SINGLES IN YOUR AREA!</div>
@@ -601,13 +685,13 @@ export default function Page() {
             <div style={{ fontSize: 9, marginTop: 6, background: 'white', color: 'red', padding: 4 }}>CLICK NOW!!!</div>
           </div>
         </div>
-        <div style={{ background: 'linear-gradient(45deg, #ff6b00, #ffa500)', padding: 12, borderRadius: 4, border: '3px dashed #000', textAlign: 'center', color: 'white', fontSize: 10, fontWeight: 'bold', minHeight: 90 }}>
+        <div onClick={() => { setShowAdTrap(true); emit('clicked_sidebar_ad', { adName: 'CONGRATULATIONS visitor #1,000,000' }); }} style={{ background: 'linear-gradient(45deg, #ff6b00, #ffa500)', padding: 12, borderRadius: 4, border: '3px dashed #000', textAlign: 'center', color: 'white', fontSize: 10, fontWeight: 'bold', minHeight: 90, animation: 'borderPulse2 1.2s infinite', cursor: 'pointer' }}>
           <div>🎁 CONGRATULATIONS! 🎁</div>
           <div style={{ marginTop: 4 }}>You are visitor #1,000,000!</div>
           <div style={{ fontSize: 9, marginTop: 4, background: '#ff0000', padding: 4 }}>CLAIM PRIZE</div>
         </div>
-        <div style={{ background: '#1a1a1a', padding: 12, borderRadius: 4, border: '2px solid #ff0000', textAlign: 'center', color: '#00ff00', fontSize: 10, fontFamily: 'monospace', fontWeight: 'bold', minHeight: 130, position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=200&h=130&fit=crop)', backgroundSize: 'cover', opacity: 0.15 }}></div>
+        <div onClick={() => { setShowAdTrap(true); emit('clicked_sidebar_ad', { adName: 'FREE GAME HACKS' }); }} style={{ background: '#1a1a1a', padding: 12, borderRadius: 4, border: '2px solid #ff0000', textAlign: 'center', color: '#00ff00', fontSize: 10, fontFamily: 'monospace', fontWeight: 'bold', minHeight: 130, position: 'relative', overflow: 'hidden', animation: 'borderPulse2 0.8s infinite', cursor: 'pointer' }}>
+          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=200&h=130&fit=crop)', backgroundSize: 'cover', opacity: 0.15, animation: 'bgShift 2.5s infinite' }}></div>
           <div style={{ position: 'relative', zIndex: 1 }}>
             <div>🎮 FREE GAME HACKS</div>
             <div style={{ marginTop: 4, color: '#ffff00' }}>Unlimited V-Bucks</div>
@@ -615,7 +699,7 @@ export default function Page() {
             <div style={{ fontSize: 7, color: '#0f0', marginTop: 6 }}>Works 100%! Download now!</div>
           </div>
         </div>
-        <div style={{ background: 'linear-gradient(135deg, #ff0000, #8b0000)', padding: 12, borderRadius: 4, border: '3px solid yellow', textAlign: 'center', color: 'white', fontSize: 11, fontWeight: 'bold', minHeight: 100, position: 'relative', overflow: 'hidden' }}>
+        <div onClick={() => { setShowAdTrap(true); emit('clicked_sidebar_ad', { adName: 'Social Security suspended' }); }} style={{ background: 'linear-gradient(135deg, #ff0000, #8b0000)', padding: 12, borderRadius: 4, border: '3px solid yellow', textAlign: 'center', color: 'white', fontSize: 11, fontWeight: 'bold', minHeight: 100, position: 'relative', overflow: 'hidden', cursor: 'pointer' }}>
           <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=200&h=100&fit=crop)', backgroundSize: 'cover', opacity: 0.2 }}></div>
           <div style={{ position: 'relative', zIndex: 1 }}>
             <div>🚨 URGENT 🚨</div>
@@ -623,11 +707,11 @@ export default function Page() {
             <div style={{ fontSize: 9, marginTop: 4, background: 'yellow', color: 'red', padding: 4 }}>FIX NOW</div>
           </div>
         </div>
-        <div style={{ background: 'linear-gradient(45deg, #00bfff, #0080ff)', padding: 12, borderRadius: 4, border: '3px solid #ffd700', textAlign: 'center', color: 'white', fontSize: 11, fontWeight: 'bold', minHeight: 85 }}>
+        <div onClick={() => { setShowAdTrap(true); emit('clicked_sidebar_ad', { adName: 'WORK FROM HOME' }); }} style={{ background: 'linear-gradient(45deg, #00bfff, #0080ff)', padding: 12, borderRadius: 4, border: '3px solid #ffd700', textAlign: 'center', color: 'white', fontSize: 11, fontWeight: 'bold', minHeight: 85, cursor: 'pointer' }}>
           <div>💰 WORK FROM HOME 💰</div>
           <div style={{ fontSize: 9, marginTop: 4 }}>Make $5000/day! No experience needed!</div>
         </div>
-        <div style={{ background: '#ff4500', padding: 12, borderRadius: 4, border: '2px dashed #ffff00', textAlign: 'center', color: 'white', fontSize: 10, fontWeight: 'bold', minHeight: 120, position: 'relative', overflow: 'hidden' }}>
+        <div onClick={() => { setShowAdTrap(true); emit('clicked_sidebar_ad', { adName: 'Browser extension' }); }} style={{ background: '#ff4500', padding: 12, borderRadius: 4, border: '2px dashed #ffff00', textAlign: 'center', color: 'white', fontSize: 10, fontWeight: 'bold', minHeight: 120, position: 'relative', overflow: 'hidden', cursor: 'pointer' }}>
           <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=200&h=120&fit=crop)', backgroundSize: 'cover', opacity: 0.25 }}></div>
           <div style={{ position: 'relative', zIndex: 1 }}>
             <div style={{ fontSize: 18 }}>🎯</div>
@@ -637,11 +721,131 @@ export default function Page() {
           </div>
         </div>
       </div>
+
+      {showAdTrap && (
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'linear-gradient(135deg, #ff0000 0%, #ff6b00 25%, #ffd700 50%, #ff6b00 75%, #ff0000 100%)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 9999,
+            overflow: 'hidden',
+          }}
+        >
+          <div style={{ position: 'absolute', top: 20, right: 20 }}>
+            <button
+              onClick={() => { setShowAdTrap(false); emit('closed_ad_trap', { action: 'clicked_x_button' }); }}
+              style={{
+                background: '#000',
+                color: '#fff',
+                border: '3px solid #fff',
+                borderRadius: '50%',
+                width: 50,
+                height: 50,
+                fontSize: 24,
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
+              }}
+            >
+              ×
+            </button>
+          </div>
+          <div style={{ textAlign: 'center', maxWidth: 800, padding: 40 }}>
+            <div style={{ fontSize: 120, marginBottom: 20 }}>🎉</div>
+            <h1 style={{ fontSize: 64, fontWeight: 'bold', color: '#fff', textShadow: '4px 4px 8px rgba(0,0,0,0.8)', marginBottom: 20, textTransform: 'uppercase', letterSpacing: '4px' }}>
+              CONGRATULATIONS!!!
+            </h1>
+            <p style={{ fontSize: 32, color: '#fff', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', marginBottom: 30 }}>
+              You've won a FREE iPhone 15 Pro Max!
+            </p>
+            <p style={{ fontSize: 24, color: '#ffeb3b', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', marginBottom: 40 }}>
+              Claim your prize NOW! Limited time offer!
+            </p>
+            <div style={{ fontSize: 80 }}>📱💎✨</div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
-function Field({ config, value, error, onChange }: { config: FieldConfig; value: string | string[] | boolean | undefined; error?: string; onChange: (key: FieldKey, v: string | string[] | boolean) => void }) {
+function CustomDropdown({ id, value, options, onChange }: { id: string; value: string; options: { value: string; label: string }[]; onChange: (v: string) => void }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const selectedOption = options.find(opt => opt.value === value);
+
+  return (
+    <div style={{ position: 'relative' }}>
+      <div
+        onClick={() => setIsOpen(!isOpen)}
+        style={{
+          border: '1px solid #ccc',
+          borderRadius: 4,
+          padding: '8px 12px',
+          background: 'white',
+          cursor: 'pointer',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
+        <span>{selectedOption?.label || 'Select one'}</span>
+        <span style={{ marginLeft: 8 }}>{isOpen ? '▲' : '▼'}</span>
+      </div>
+      {isOpen && (
+        <div
+          style={{
+            position: 'absolute',
+            top: '100%',
+            left: 0,
+            right: 0,
+            background: 'white',
+            border: '1px solid #ccc',
+            borderTop: 'none',
+            borderRadius: '0 0 4px 4px',
+            maxHeight: 200,
+            overflowY: 'auto',
+            zIndex: 1000,
+            boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+          }}
+        >
+          {options.map(opt => (
+            <div
+              key={opt.value}
+              onClick={() => {
+                onChange(opt.value);
+                setIsOpen(false);
+              }}
+              style={{
+                padding: '8px 12px',
+                cursor: 'pointer',
+                background: value === opt.value ? '#f0f0f0' : 'white',
+                borderBottom: '1px solid #eee',
+              }}
+              onMouseEnter={(e) => {
+                if (value !== opt.value) {
+                  e.currentTarget.style.background = '#f8f8f8';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (value !== opt.value) {
+                  e.currentTarget.style.background = 'white';
+                }
+              }}
+            >
+              {opt.label}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function Field({ config, value, error, onChange, useCustomDropdown }: { config: FieldConfig; value: string | string[] | boolean | undefined; error?: string; onChange: (key: FieldKey, v: string | string[] | boolean) => void; useCustomDropdown?: boolean }) {
   const common = (
     <label htmlFor={config.key} style={{ fontWeight: 600 }}>
       {config.label}
@@ -678,17 +882,28 @@ function Field({ config, value, error, onChange }: { config: FieldConfig; value:
       );
       break;
     case 'select':
-      control = (
-        <select
-          id={config.key}
-          value={(value as string) ?? ''}
-          onChange={e => onChange(config.key, e.target.value)}
-        >
-          {(config.options || []).map(opt => (
-            <option key={opt.value} value={opt.value}>{opt.label}</option>
-          ))}
-        </select>
-      );
+      if (useCustomDropdown && config.key === 'referralSource') {
+        control = (
+          <CustomDropdown
+            id={config.key}
+            value={(value as string) ?? ''}
+            options={config.options || []}
+            onChange={(v) => onChange(config.key, v)}
+          />
+        );
+      } else {
+        control = (
+          <select
+            id={config.key}
+            value={(value as string) ?? ''}
+            onChange={e => onChange(config.key, e.target.value)}
+          >
+            {(config.options || []).map(opt => (
+              <option key={opt.value} value={opt.value}>{opt.label}</option>
+            ))}
+          </select>
+        );
+      }
       break;
     case 'radio':
       control = (
@@ -812,5 +1027,6 @@ async function emit(event: string, data?: unknown, values?: Record<string, any>)
     });
   } catch {}
 }
+
 
 
