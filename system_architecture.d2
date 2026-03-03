@@ -1,0 +1,98 @@
+direction: down
+
+online_form: "ONLINE FORM APPLICATION\n(localhost:3000/seed/{seed})" {
+  shape: rectangle
+  style.fill: "#f0f0f0"
+  style.stroke: "#000"
+  style.stroke-width: 3
+  style.font-size: 16
+  style.bold: true
+}
+
+gui_agent: "GUI AGENT SYSTEM\nOpenAI Computer Use Agent (CUA)\nModel: computer-use-preview" {
+  shape: rectangle
+  style.fill: "#e6f2ff"
+  style.stroke: "#0066cc"
+  style.stroke-width: 3
+  style.font-size: 16
+  style.bold: true
+
+  vision: "Vision Processing\n(Screenshot Analysis)" {
+    shape: rectangle
+    style.fill: "#ffffff"
+    style.stroke: "#0066cc"
+  }
+
+  llm: "LLM Reasoning\n& Decision Making" {
+    shape: rectangle
+    style.fill: "#ffffff"
+    style.stroke: "#0066cc"
+  }
+
+  action: "Action Planning\n(Next Action)" {
+    shape: rectangle
+    style.fill: "#ffffff"
+    style.stroke: "#0066cc"
+  }
+
+  vision -> llm
+  llm -> action
+}
+
+browser: "BROWSER AUTOMATION LAYER\nPlaywright - Chromium\nViewport: 1024×768" {
+  shape: rectangle
+  style.fill: "#fff5e6"
+  style.stroke: "#ff9900"
+  style.stroke-width: 3
+  style.font-size: 16
+  style.bold: true
+
+  primitives: "Computer Primitives:\nclick(x,y) | type(text) | scroll(dx,dy)\nkeypress(keys) | move(x,y) | double_click(x,y)" {
+    shape: rectangle
+    style.fill: "#ffffff"
+    style.stroke: "#ff9900"
+  }
+}
+
+telemetry: "TELEMETRY & LOGGING" {
+  shape: rectangle
+  style.fill: "#f0fff0"
+  style.stroke: "#00cc66"
+  style.stroke-width: 3
+  style.font-size: 16
+  style.bold: true
+
+  action_logs: "Action Logs\n(JSON files)" {
+    shape: rectangle
+    style.fill: "#ffffff"
+    style.stroke: "#00cc66"
+  }
+
+  screenshots: "Screenshots\n(PNG images)" {
+    shape: rectangle
+    style.fill: "#ffffff"
+    style.stroke: "#00cc66"
+  }
+
+  sheets: "Google Sheets\n(Event stream)" {
+    shape: rectangle
+    style.fill: "#ffffff"
+    style.stroke: "#00cc66"
+  }
+}
+
+# Main flow connections
+online_form -> gui_agent: "HTTP Request\nScreenshot Response" {
+  style.stroke: "#333"
+  style.stroke-width: 2
+}
+
+gui_agent -> browser: "Computer Primitives" {
+  style.stroke: "#333"
+  style.stroke-width: 2
+}
+
+browser -> telemetry {
+  style.stroke: "#333"
+  style.stroke-width: 2
+}

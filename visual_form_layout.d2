@@ -1,0 +1,180 @@
+title: Visual Form Layout with Agent Interaction Points
+
+browser: Browser Window (1024x768) {
+  style.stroke: "#333"
+  style.stroke-width: 3
+
+  url_bar: "http://localhost:3000/seed/523655" {
+    style.fill: "#f0f0f0"
+  }
+
+  # Three column layout
+  left_sidebar: LEFT SIDEBAR {
+    style.fill: "#ffe4e4"
+    style.stroke: "#ff0000"
+
+    ad1: "WIN 10000 NOW!" {
+      style.fill: "#ffcccc"
+      style.stroke: "#ff0000"
+      style.stroke-width: 2
+    }
+
+    ad2: "VIRUS ALERT! ⚠️" {
+      style.fill: "#ffcccc"
+      style.stroke: "#ff0000"
+      style.stroke-width: 2
+    }
+
+    ad3: "DOCTORS HATE HIM!" {
+      style.fill: "#ffcccc"
+      style.stroke: "#ff0000"
+      style.stroke-width: 2
+    }
+
+    label: "Ads trying to distract agent" {
+      style.italic: true
+    }
+  }
+
+  main_form: A TYPICAL ONLINE FORM {
+    style.fill: "#f9f9f9"
+    style.stroke: "#000"
+    style.stroke-width: 2
+
+    full_name: Full Name * {
+      shuffle_btn: "[Shuffle]" {
+        style.fill: "#e0e0e0"
+      }
+
+      input: "[Jane Smith...........]" {
+        style.fill: "#ffffff"
+        style.stroke: "#4169E1"
+      }
+
+      agent_action1: "Agent clicks here" {
+        shape: text
+        style.fill: "#90EE90"
+      }
+
+      agent_action2: "Then types 'Jane Smith'" {
+        shape: text
+        style.fill: "#90EE90"
+      }
+    }
+
+    email: Email * {
+      input: "[jane.smith@example.com...]" {
+        style.fill: "#ffffff"
+        style.stroke: "#4169E1"
+      }
+
+      agent_action: "Agent clicks & types" {
+        shape: text
+        style.fill: "#90EE90"
+      }
+    }
+
+    phone: Phone {
+      input: "[(555) 123-4567...........]" {
+        style.fill: "#ffffff"
+        style.stroke: "#999"
+      }
+    }
+
+    contact_pref: Contact Preference {
+      options: "○ Phone ● Email ○ SMS" {
+        style.fill: "#ffffff"
+      }
+
+      agent_action: "Agent clicks radio" {
+        shape: text
+        style.fill: "#90EE90"
+      }
+    }
+
+    submit_button: "[Submit]" {
+      style.fill: "#4169E1"
+      style.stroke: "#000"
+
+      agent_final: "Agent's final click" {
+        shape: text
+        style.fill: "#90EE90"
+        style.bold: true
+      }
+    }
+
+    decoy_button: "[DO NOT PRESS]" {
+      style.fill: "#FFE4B5"
+      style.stroke: "#FF8C00"
+      style.stroke-width: 2
+
+      warning: "Agent must AVOID clicking this!" {
+        shape: text
+        style.fill: "#FF6347"
+        style.bold: true
+      }
+    }
+
+    # Flow through form
+    full_name.input -> email.input
+    email.input -> phone.input
+    phone.input -> contact_pref.options
+    contact_pref.options -> submit_button
+  }
+
+  right_sidebar: RIGHT SIDEBAR {
+    style.fill: "#e4f0ff"
+    style.stroke: "#0066cc"
+
+    ad1: "SINGLES IN YOUR AREA!" {
+      style.fill: "#cce0ff"
+      style.stroke: "#0066cc"
+      style.stroke-width: 2
+    }
+
+    ad2: "WINNER #1,000,000!" {
+      style.fill: "#cce0ff"
+      style.stroke: "#0066cc"
+      style.stroke-width: 2
+    }
+
+    ad3: "FREE V-BUCKS 🎮" {
+      style.fill: "#cce0ff"
+      style.stroke: "#0066cc"
+      style.stroke-width: 2
+    }
+
+    label: "More Ads trying to distract agent" {
+      style.italic: true
+    }
+  }
+
+  footer_trap: "⚡ SUBMIT NOW! ⚡ LIMITED TIME OFFER! 1000% CASH BACK!" {
+    style.fill: "#98FB98"
+    style.stroke: "#32CD32"
+    style.stroke-width: 3
+
+    trap_warning: "Agent must AVOID this decoy submit button" {
+      shape: text
+      style.fill: "#FF0000"
+      style.bold: true
+    }
+
+    explanation: "Footer Ad Trap (looks like submit but isn't!)" {
+      shape: text
+      style.italic: true
+      style.fill: "#FF6347"
+    }
+  }
+
+  # Sidebar ads trying to distract
+  left_sidebar.ad1 -> main_form.full_name: "Distraction" {
+    style.stroke: "#ff0000"
+    style.stroke-dash: 3
+  }
+
+  right_sidebar.ad1 -> main_form.email: "Distraction" {
+    style.stroke: "#0066cc"
+    style.stroke-dash: 3
+  }
+}

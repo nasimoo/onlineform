@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(source:*)",
+      "Bash(pip install:*)",
+      "Bash(./run_intelligent.sh)",
+      "Bash(git checkout:*)",
+      "Read(//Users/nasimo/Documents/openai-cua-sample-app-1/agent/**)",
+      "Read(//Users/nasimo/Documents/openai-cua-sample-app-1/examples/**)",
+      "Read(//Users/nasimo/Documents/openai-cua-sample-app-1/computers/shared/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

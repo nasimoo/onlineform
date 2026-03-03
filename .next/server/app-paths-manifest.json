@@ -1,0 +1,5 @@
+{
+  "/api/submit/route": "app/api/submit/route.js",
+  "/seed/[seed]/page": "app/seed/[seed]/page.js",
+  "/api/events/route": "app/api/events/route.js"
+}
